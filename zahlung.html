@@ -69,19 +69,21 @@
 
 @media(max-width:1024px){
   .pay-hero,.pay-body{padding-left:1.5rem;padding-right:1.5rem}
-  .pay-grid{grid-template-columns:1fr}
-  .pay-card{padding:1.5rem}
+  .pay-grid{grid-template-columns:1fr;display:grid!important}
+  .pay-card{padding:1.5rem;display:block!important;opacity:1!important;transform:none!important}
   .ms-plans{grid-template-columns:1fr}
   .ms-plan{border-right:none;border-bottom:1px solid var(--bord)}
   .ms-plan:last-child{border-bottom:none}
   .bank-rows{grid-template-columns:1fr}
   .security-bar{flex-direction:column;gap:1rem;padding:1.25rem}
   .pay-hero{padding-top:7rem}
+  .pay-body{padding-bottom:3rem}
 }
 @media(max-width:600px){
-  .pay-grid{grid-template-columns:1fr}
+  .pay-grid{grid-template-columns:1fr;display:grid!important}
   .pay-body{padding:2rem 1.25rem}
   .pay-hero{padding:7rem 1.25rem 2rem}
+  .pay-card{opacity:1!important;transform:none!important;display:block!important}
 }
 </style>
 </head>
@@ -115,7 +117,7 @@
   <div class="eye" style="margin-bottom:1rem">Mitgliedschaft</div>
   <h2 class="h2" style="margin-bottom:2.5rem">Mitgliederbereich <em>abonnieren</em></h2>
 
-  <div class="membership-sec reveal">
+  <div class="membership-sec">
     <div class="ms-head">
       <h3>Wähle deinen Plan</h3>
       <span style="font-size:.82rem;color:var(--muted);font-weight:400">Zugang zu Meditationen, Videos & exklusiven Inhalten</span>
@@ -167,7 +169,7 @@
   <div class="eye" style="margin-bottom:1rem;margin-top:3rem">Zahlungsmethoden</div>
   <h2 class="h2" style="margin-bottom:2.5rem">So kannst du <em>bezahlen</em></h2>
 
-  <div class="pay-grid reveal">
+  <div class="pay-grid">
 
     <!-- TWINT -->
     <div class="pay-card featured">
@@ -214,7 +216,7 @@
   </div>
 
   <!-- BANKÜBERWEISUNG -->
-  <div class="bank-sec reveal">
+  <div class="bank-sec">
     <h3>Banküberweisung</h3>
     <div class="bank-rows">
       <div class="bank-row"><div class="bank-lbl">Name</div><div class="bank-val">Manuela Zaugg</div></div>
@@ -226,7 +228,7 @@
   </div>
 
   <!-- SICHERHEIT -->
-  <div class="security-bar reveal">
+  <div class="security-bar">
     <div class="sec-item"><span class="sec-icon">🔒</span>SSL-verschlüsselt</div>
     <div class="sec-item"><span class="sec-icon">🇨🇭</span>Schweizer Datenschutz</div>
     <div class="sec-item"><span class="sec-icon">✓</span>Zahlung im Voraus · keine Vertragsklauseln</div>

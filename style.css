@@ -3,7 +3,7 @@
 :root{
   --cream:#FAF7F2; --warm:#F0E8D8; --linen:#E5D8C2;
   --gold:#A87C2E; --gold-l:#C89840; --gold-xl:#E8C870; --gold-d:#7A5418;
-  --ink:#0E0905; --brown:#2C1A08; --muted:rgba(14,9,5,0.82);
+  --ink:#0E0905; --brown:#2C1A08; --muted:rgba(14,9,5,0.88);
   --white:#FFFFFF; --bord:rgba(168,124,46,0.22);
   --shadow:0 20px 60px rgba(14,9,5,0.14);
 }
@@ -64,7 +64,7 @@ nav.scrolled{box-shadow:0 2px 32px rgba(184,137,58,.1)}
 .card-body{padding:1.75rem}
 .card-tag{font-size:.64rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:500;margin-bottom:.5rem}
 .card h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;line-height:1.2}
-.card p{font-size:.85rem;line-height:1.7;color:var(--muted);font-weight:300;margin-bottom:1.25rem}
+.card p{font-size:.85rem;line-height:1.7;color:var(--muted);font-weight:400;margin-bottom:1.25rem}
 .card-footer{display:flex;justify-content:space-between;align-items:center}
 .price-tag{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--gold-d)}
 
@@ -74,8 +74,7 @@ nav.scrolled{box-shadow:0 2px 32px rgba(184,137,58,.1)}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
-.reveal.vis{opacity:1;transform:none}
+.reveal{opacity:1;transform:none;transition:opacity .65s ease,transform .65s ease}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 
 /* FOOTER */
