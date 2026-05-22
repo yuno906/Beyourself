@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt | beyour-self.ch</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.contact-hero{background:var(--ink);min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px}
+.contact-photo{position:relative;overflow:hidden;background:#c4a882}
+.contact-photo img{width:100%;height:100%;object-fit:cover;object-position:center center;position:absolute;inset:0;filter:sepia(10%) saturate(115%) brightness(1.05)}
+.contact-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, transparent 60%, var(--warm,#f0ece4) 100%), linear-gradient(to right, var(--warm,#f0ece4) 0%, transparent 8%, transparent 92%, var(--warm,#f0ece4) 100%)}
+.contact-content{background:var(--warm);padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center}
+
+.cdetails{display:flex;flex-direction:column;gap:.85rem;margin:2.5rem 0}
+.cd{display:flex;gap:1rem;align-items:center;border-radius:1rem;padding:1.1rem 1.4rem;text-decoration:none;color:inherit;transition:all .22s}
+.cd.whatsapp{background:#25D366;box-shadow:0 4px 20px rgba(37,211,102,.25)}
+.cd.whatsapp:hover{background:#1eba56;transform:translateX(5px);box-shadow:0 8px 28px rgba(37,211,102,.35)}
+.cd.email{background:var(--white);border:1.5px solid var(--bord)}
+.cd.email:hover{border-color:var(--gold);transform:translateX(5px);box-shadow:0 4px 16px rgba(184,137,58,.1)}
+.cd.phone{background:var(--white);border:1.5px solid var(--bord)}
+.cd.phone:hover{border-color:var(--gold);transform:translateX(5px)}
+.cd.location{background:var(--white);border:1.5px solid var(--bord)}
+.cd-ico{font-size:1.4rem;flex-shrink:0}
+.cd-lbl{font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;font-weight:500;margin-bottom:2px}
+.cd.whatsapp .cd-lbl{color:rgba(255,255,255,.65)}
+.cd.email .cd-lbl,.cd.phone .cd-lbl,.cd.location .cd-lbl{color:var(--muted)}
+.cd-val{font-size:.95rem;font-weight:500}
+.cd.whatsapp .cd-val{color:#fff}
+.cd.email .cd-val,.cd.phone .cd-val,.cd.location .cd-val{color:var(--ink)}
+
+.cta-block{background:var(--brown);border-radius:1.25rem;padding:2rem 2.25rem;margin-bottom:2rem}
+.cta-block p{font-size:.92rem;color:rgba(255,255,255,.62);font-weight:300;margin-bottom:1.25rem;line-height:1.75}
+.cta-block a{display:inline-flex;align-items:center;gap:.4rem;background:var(--gold-l);color:var(--ink);padding:.82rem 1.8rem;border-radius:100px;font-weight:500;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all .22s}
+.cta-block a:hover{background:var(--gold-xl)}
+
+.social-row{display:flex;gap:.65rem;margin-top:1.5rem}
+.soc{width:42px;height:42px;border-radius:50%;background:var(--white);border:1.5px solid var(--bord);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:600;color:var(--brown);text-decoration:none;transition:all .22s}
+.soc:hover{background:var(--gold);color:#fff;border-color:var(--gold);transform:translateY(-2px)}
+
+/* FORM SECTION */
+.form-sec{background:var(--cream);padding:7rem 5rem}
+.form-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.form-box{background:var(--white);border-radius:1.5rem;border:1px solid var(--bord);padding:2.5rem}
+.form-box h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:1.75rem}
+.fg{margin-bottom:1.25rem}
+.fg label{display:block;font-size:.74rem;font-weight:500;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.4rem}
+.fg input,.fg select,.fg textarea{width:100%;border:1.5px solid var(--bord);border-radius:.75rem;padding:.78rem 1rem;font-size:.9rem;font-family:'Jost',sans-serif;color:var(--ink);background:var(--white);outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
+.fg textarea{height:110px;resize:vertical}
+
+.faq-box{}
+.faq-box h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:1.75rem}
+.faq-item{border-bottom:1px solid var(--bord);padding:1.1rem 0}
+.faq-item:last-child{border:none}
+.faq-q{font-size:.92rem;font-weight:500;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q .arrow{color:var(--gold);transition:transform .2s;font-size:.8rem}
+.faq-q.open .arrow{transform:rotate(180deg)}
+.faq-a{font-size:.85rem;line-height:1.72;color:var(--muted);font-weight:400;margin-top:.75rem;display:none}
+.faq-a.open{display:block}
+
+@media(max-width:1024px){
+  .contact-hero{grid-template-columns:1fr}
+  .contact-photo{min-height:420px;position:relative;background:#b5a090}
+  .contact-photo img{position:relative;width:100%;height:420px;object-fit:contain;object-position:center top}
+  .contact-content{padding:4rem 1.5rem}
+  .form-sec{padding:5rem 1.5rem}
+  .form-inner{grid-template-columns:1fr;gap:2rem}
+}
+@media(max-width:600px){
+  /* Foto kompakter — nicht halber Screen */
+  .contact-photo img{height:380px;object-fit:contain;object-position:center top}
+  .contact-photo{min-height:380px;background:#b5a090}
+
+  /* Content enger und lesbarer */
+  .contact-content{padding:2.5rem 1.25rem}
+
+  /* Kontakt-Details volle Breite, gut antippbar */
+  .cd{padding:.95rem 1.1rem;gap:.75rem}
+  .cd-val{font-size:.88rem;word-break:break-all}
+
+  /* CTA-Block kompakter */
+  .cta-block{padding:1.4rem 1.25rem}
+  .cta-block a{width:100%;text-align:center;justify-content:center}
+
+  /* Formular */
+  .form-box{padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="logo"><span class="logo-orb">by</span>beyour-self.ch</a>
+  <ul class="nav-links">
+    <li><a href="index.html#angebote">Angebote</a></li>
+    <li><a href="index.html#firmen">Firmen</a></li>
+    <li><a href="veranstaltungen.html">Events</a></li>
+    <li><a href="index.html#preise">Preise</a></li>
+    <li><a href="index.html#stimmen">Stimmen</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <div class="nav-r">
+    <a href="shop.html" class="nav-shop">Shop</a>
+    <a href="kontakt.html" class="nav-cta active">Kostenloses 1. Gespräch</a>
+  </div>
+</nav>
+
+<section class="contact-hero">
+  <div class="contact-photo">
+    <img src="manuela.jpg" alt="Manuela Zaugg">
+  </div>
+  <div class="contact-content">
+    <div class="eye">Kontakt</div>
+    <h1 class="h2" style="margin-bottom:1rem">Bereit für<br><em>deine Veränderung?</em></h1>
+    <p style="font-size:.92rem;line-height:1.85;color:var(--muted);font-weight:400;max-width:380px">15 Minuten gratis — unverbindlich und persönlich. Ich freue mich auf dich, in der Praxis, draussen oder online.</p>
+
+    <div class="cdetails">
+      <!-- WHATSAPP FIRST -->
+      <a class="cd whatsapp" href="https://wa.me/41793352718?text=Hallo%20Manuela%2C%20ich%20möchte%20gerne%20ein%20kostenloses%20Erstgespräch%20vereinbaren." target="_blank">
+        <span class="cd-ico">💬</span>
+        <div><div class="cd-lbl">WhatsApp · Bevorzugt</div><div class="cd-val">+41 79 335 27 18</div></div>
+      </a>
+      <!-- EMAIL SECOND -->
+      <a class="cd email" href="mailto:beyourself2026@outlook.com?subject=Kostenloses%201.%20Gespräch%20anfragen">
+        <span class="cd-ico">✉️</span>
+        <div><div class="cd-lbl">E-Mail</div><div class="cd-val">beyourself2026@outlook.com</div></div>
+      </a>
+      <!-- PHONE THIRD -->
+      <a class="cd phone" href="tel:+41793352718">
+        <span class="cd-ico">📞</span>
+        <div><div class="cd-lbl">Telefon</div><div class="cd-val">+41 79 335 27 18</div></div>
+      </a>
+      <!-- LOCATION -->
+      <div class="cd location">
+        <span class="cd-ico">📍</span>
+        <div><div class="cd-lbl">Praxis</div><div class="cd-val">Rebackerweg 14, CH-3110 Münsingen</div></div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <p>Starte mit einem kostenlosen Erstgespräch — 15 Minuten, kostenlos, ganz persönlich.</p>
+      <a href="https://cal.eu/manuela-zaugg-z5vjk1" target="_blank" class="btn-gold" style="display:block;text-align:center;margin-bottom:1rem">📅 Termin direkt buchen →</a>
+      <a href="https://wa.me/41793352718?text=Kostenloses%201.%20Gespräch%20anfragen" target="_blank">✦ Kostenloses 1. Gespräch — WhatsApp</a>
+    </div>
+
+    <div class="social-row">
+      <a href="https://www.facebook.com/profile.php?id=100063534671436" target="_blank" class="soc" title="Facebook">FB</a>
+      <a href="https://www.instagram.com/beyoureself_ch/" target="_blank" class="soc" title="Instagram">IG</a>
+      <a href="zahlung.html" class="soc" title="Zahlung">💳</a>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKTFORMULAR + FAQ -->
+<section class="form-sec">
+  <div class="form-inner">
+    <!-- FORM -->
+    <div class="form-box">
+      <h3>Nachricht senden</h3>
+      <div class="fg"><label>Vorname & Nachname</label><input type="text" placeholder="Dein Name"></div>
+      <div class="fg"><label>E-Mail</label><input type="email" placeholder="deine@email.ch"></div>
+      <div class="fg"><label>Thema</label>
+        <select>
+          <option>Kostenloses 1. Gespräch</option>
+          <option>Körpertherapie & Massage</option>
+          <option>Gesundheitsberatung</option>
+          <option>Firmen & Teamberatung</option>
+          <option>Personal Training App</option>
+          <option>Shop / Produkte</option>
+          <option>Mitgliedschaft</option>
+          <option>Veranstaltungen</option>
+          <option>Sonstiges</option>
+        </select>
+      </div>
+      <div class="fg"><label>Deine Nachricht</label><textarea placeholder="Wie kann ich dir helfen?"></textarea></div>
+      <button class="btn-gold" style="width:100%" onclick="formSend()">Nachricht senden →</button>
+      <p id="formMsg" style="text-align:center;font-size:.82rem;color:var(--gold-d);margin-top:.75rem;display:none">✓ Danke! Ich melde mich bald.</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-box">
+      <h3>Häufige Fragen</h3>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Wie läuft das Erstgespräch ab? <span class="arrow">▼</span></div>
+        <div class="faq-a">Das Erstgespräch dauert 15 Minuten, ist kostenlos und unverbindlich. Wir schauen gemeinsam, was dich beschäftigt — und ob wir zusammenpassen. Ganz entspannt, per Telefon, Video oder persönlich.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Kann ich Sitzungen verschenken? <span class="arrow">▼</span></div>
+        <div class="faq-a">Ja — Pakete sind teilbar und verschenkbar. Du kannst Sitzungen aus einem Paket an andere Personen weitergeben. Ideal als Geschenk für Menschen, denen du Gutes wünschst.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Beratung online oder nur in der Praxis? <span class="arrow">▼</span></div>
+        <div class="faq-a">Beide Möglichkeiten stehen offen. Online-Beratungen sind genauso effektiv wie Präsenz-Termine. Auch Geh-Gespräche in der Natur sind möglich — in Münsingen und Umgebung.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Für welche Anliegen ist Gesundheitsberatung geeignet? <span class="arrow">▼</span></div>
+        <div class="faq-a">Für Menschen, die Symptome anders beleuchten möchten — Erschöpfung, Schmerzen, Lebenskrisen, Zielklarheit, Beziehungsmuster oder schlicht den Wunsch, mehr aus dem Leben zu machen.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Wie schnell erhalte ich eine Antwort? <span class="arrow">▼</span></div>
+        <div class="faq-a">Per WhatsApp in der Regel innerhalb weniger Stunden. Per E-Mail innerhalb von 1–2 Arbeitstagen. Am schnellsten erreichst du mich über WhatsApp.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Wie bezahle ich? <span class="arrow">▼</span></div>
+        <div class="faq-a">TWINT (am einfachsten), PayPal, Kreditkarte oder Banküberweisung. Alle Details findest du auf der <a href="zahlung.html" style="color:var(--gold)">Zahlungsseite</a>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="f-logo">beyour-self<span>.ch</span></a>
+  <div class="f-links">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="veranstaltungen.html">Events</a>
+    <a href="member.html">Mitglieder</a>
+    <a href="zahlung.html">Zahlung</a>
+  </div>
+  <p>© 2026 Manuela Zaugg · beyourself2026@outlook.com</p>
+</footer>
+
+<script src="main.js"></script>
+<script>
+function formSend(){
+  const msg=document.getElementById('formMsg');
+  msg.style.display='block';
+  const subject=document.querySelector('select').value;
+  const text=document.querySelector('textarea').value;
+  window.location.href=`mailto:info@honestcoach.app?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+}
+function toggleFaq(el){
+  const a=el.nextElementSibling;
+  const open=a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));
+  document.querySelectorAll('.faq-q').forEach(x=>x.classList.remove('open'));
+  if(!open){a.classList.add('open');el.classList.add('open');}
+}
+</script>
+</body>
+</html>
