@@ -14,14 +14,16 @@
 .h-eye::before{content:'';width:30px;height:1px;background:var(--gold-l)}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,4.5vw,4.8rem);font-weight:300;line-height:1.07;letter-spacing:-.01em;color:var(--ink);margin-bottom:1.6rem;animation:up .9s .1s ease both}
 .hero h1 em{font-style:italic;color:var(--gold-d);font-weight:400;display:block}
-.hero-sub{font-size:.97rem;line-height:1.92;color:var(--muted);font-weight:300;max-width:375px;margin-bottom:2.8rem;animation:up .9s .2s ease both}
+.hero-sub{font-size:.97rem;line-height:1.92;color:rgba(14,9,5,0.72);font-weight:400;max-width:375px;margin-bottom:2.8rem;animation:up .9s .2s ease both}
 .hero-btns{display:flex;gap:.9rem;flex-wrap:wrap;animation:up .9s .3s ease both}
 .hero-trust{margin-top:2.8rem;padding-top:2rem;border-top:1px solid var(--bord);display:flex;align-items:center;gap:1.5rem;animation:up .9s .4s ease both}
 .stars{color:var(--gold);font-size:.8rem;letter-spacing:.04em}
-.trust-t{font-size:.8rem;color:var(--muted);line-height:1.55}
-.trust-t strong{color:var(--ink);font-weight:600}
+.trust-t{font-size:.82rem;color:rgba(14,9,5,0.70);line-height:1.55}
+.trust-t strong{color:var(--ink);font-weight:700}
 .hero-r{position:relative;overflow:hidden}
-.hero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;animation:zoomin 10s ease both}
+.hero-r video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;animation:zoomin 10s ease both;transition:opacity 1.8s ease;z-index:1}
+.hero-r img.fade-out{opacity:0}
 .hero-r::before{content:'';position:absolute;left:0;top:0;bottom:0;width:70px;background:linear-gradient(to right,var(--cream),transparent);z-index:2}
 .hero-pill{position:absolute;bottom:2.5rem;left:3rem;z-index:3;background:rgba(250,247,242,.96);backdrop-filter:blur(16px);border-radius:1rem;padding:1.2rem 1.5rem;box-shadow:0 8px 40px rgba(28,18,8,.12);border:1px solid var(--bord);animation:up .9s .5s ease both}
 .hp-lbl{font-size:.58rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:400;margin-bottom:.3rem}
@@ -31,8 +33,8 @@
 /* STRIP */
 .strip{background:var(--brown);padding:.85rem 0;overflow:hidden}
 .strip-inner{display:flex;gap:2.5rem;animation:marquee 30s linear infinite;width:max-content}
-.si{color:rgba(255,255,255,.35);font-size:.66rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:.8rem}
-.si-dot{color:var(--gold-l);font-size:.32rem}
+.si{color:rgba(255,255,255,.75);font-size:.68rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:.8rem}
+.si-dot{color:var(--gold-xl);font-size:.32rem}
 
 /* ABOUT */
 .about{background:var(--white);display:grid;grid-template-columns:1fr 1fr;min-height:640px}
@@ -44,18 +46,18 @@
 .aq-txt{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--brown);line-height:1.55}
 .about-cnt{background:var(--warm);padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center}
 .creds{display:flex;flex-direction:column;gap:.6rem;margin:1.8rem 0 2.5rem}
-.cred{display:flex;align-items:flex-start;gap:.9rem;background:rgba(255,255,255,.75);border-radius:.75rem;padding:.8rem 1.1rem;border:1px solid var(--bord);font-size:.85rem;font-weight:300;color:var(--muted);transition:transform .2s}
+.cred{display:flex;align-items:flex-start;gap:.9rem;background:rgba(255,255,255,.85);border-radius:.75rem;padding:.8rem 1.1rem;border:1px solid var(--bord);font-size:.87rem;font-weight:400;color:rgba(14,9,5,0.72);transition:transform .2s}
 .cred:hover{transform:translateX(4px)}
 .cred .ci{font-size:1rem;flex-shrink:0;margin-top:.05rem}
-.cred strong{color:var(--ink);font-weight:600}
+.cred strong{color:var(--ink);font-weight:700}
 
 /* NUMBERS */
 .numbers{background:var(--brown);display:grid;grid-template-columns:repeat(4,1fr)}
-.num{padding:4rem 2rem;text-align:center;border-right:1px solid rgba(255,255,255,.07);transition:background .2s}
+.num{padding:4rem 2rem;text-align:center;border-right:1px solid rgba(255,255,255,.1);transition:background .2s}
 .num:last-child{border-right:none}
-.num:hover{background:rgba(255,255,255,.025)}
-.num-n{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;color:var(--gold-l);line-height:1;letter-spacing:-.03em}
-.num-l{font-size:.72rem;color:rgba(255,255,255,.38);margin-top:.55rem;font-weight:300;letter-spacing:.08em}
+.num:hover{background:rgba(255,255,255,.04)}
+.num-n{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:600;color:var(--gold-xl);line-height:1;letter-spacing:-.03em}
+.num-l{font-size:.76rem;color:rgba(255,255,255,.7);margin-top:.55rem;font-weight:400;letter-spacing:.08em}
 
 /* SERVICES GRID */
 .svc-sec{background:var(--cream);padding:7rem 5rem}
@@ -69,47 +71,47 @@
 .sc.p4{grid-column:span 7}
 .sc-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .sc:hover .sc-img{transform:scale(1.06)}
-.sc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,18,8,.88) 0%,rgba(28,18,8,.1) 55%,transparent 100%)}
+.sc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(14,9,5,.92) 0%,rgba(14,9,5,.35) 55%,transparent 100%)}
 .sc.sol-brown{background:var(--brown)}
 .sc.sol-warm{background:var(--warm);border:1px solid var(--bord)}
 .sc-body{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:2rem}
 .sc-body.t{bottom:auto;top:0}
 .sc-tag{font-size:.6rem;text-transform:uppercase;letter-spacing:.18em;font-weight:500;color:var(--gold-l);margin-bottom:.45rem}
 .sc.sol-warm .sc-tag{color:var(--gold)}
-.sc h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;line-height:1.15;color:#fff}
+.sc h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;line-height:1.15;color:#fff}
 .sc.sol-warm h3{color:var(--ink)}
-.sc p{font-size:.8rem;line-height:1.65;margin-top:.4rem;color:rgba(255,255,255,.65);font-weight:300}
-.sc.sol-warm p{color:var(--muted)}
-.sc-chip{display:inline-flex;align-items:center;margin-top:.9rem;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border-radius:100px;padding:.28rem .85rem;font-size:.66rem;font-weight:400;letter-spacing:.06em;color:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.13)}
+.sc p{font-size:.82rem;line-height:1.65;margin-top:.4rem;color:rgba(255,255,255,.88);font-weight:400}
+.sc.sol-warm p{color:rgba(14,9,5,0.72)}
+.sc-chip{display:inline-flex;align-items:center;margin-top:.9rem;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border-radius:100px;padding:.28rem .85rem;font-size:.66rem;font-weight:500;letter-spacing:.06em;color:#fff;border:1px solid rgba(255,255,255,.25)}
 .sc.sol-warm .sc-chip{background:var(--gold);color:#fff;border:none}
 
 /* FIRMEN */
 .firmen-sec{background:var(--brown);padding:7rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
-.firmen-intro{font-size:.93rem;line-height:1.9;color:rgba(255,255,255,.5);font-weight:300;margin:1.2rem 0 2.5rem;max-width:400px}
+.firmen-intro{font-size:.95rem;line-height:1.9;color:rgba(255,255,255,.78);font-weight:400;margin:1.2rem 0 2.5rem;max-width:400px}
 .f-items{display:flex;flex-direction:column;gap:.85rem}
-.f-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:1rem;padding:1.2rem 1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:background .2s,border-color .2s}
-.f-item:hover{background:rgba(255,255,255,.08);border-color:rgba(184,137,58,.25)}
+.f-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:1.2rem 1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:background .2s,border-color .2s}
+.f-item:hover{background:rgba(255,255,255,.12);border-color:rgba(200,152,64,.4)}
 .f-ico{font-size:1.1rem;flex-shrink:0;margin-top:.05rem}
-.f-title{font-size:.88rem;font-weight:600;color:#fff;margin-bottom:.2rem}
-.f-desc{font-size:.8rem;line-height:1.6;color:rgba(255,255,255,.45);font-weight:300}
+.f-title{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.f-desc{font-size:.82rem;line-height:1.6;color:rgba(255,255,255,.68);font-weight:400}
 .firmen-r{display:flex;flex-direction:column;gap:1.5rem;padding-top:1rem}
 .firmen-quote{border-left:2px solid var(--gold-l);padding-left:1.25rem}
-.fq-txt{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:rgba(255,255,255,.7);line-height:1.5;margin-bottom:.4rem}
-.fq-sub{font-size:.75rem;color:rgba(255,255,255,.35);font-weight:300}
+.fq-txt{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:rgba(255,255,255,.9);line-height:1.5;margin-bottom:.4rem}
+.fq-sub{font-size:.76rem;color:rgba(255,255,255,.55);font-weight:400}
 .firmen-nums{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.fn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:1rem;padding:1.5rem;text-align:center}
-.fn-n{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:var(--gold-l);line-height:1}
-.fn-l{font-size:.72rem;color:rgba(255,255,255,.38);margin-top:.4rem;font-weight:300}
+.fn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:1.5rem;text-align:center}
+.fn-n{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--gold-xl);line-height:1}
+.fn-l{font-size:.74rem;color:rgba(255,255,255,.65);margin-top:.4rem;font-weight:400}
 
 /* APP */
 .app-sec{background:var(--ink);display:grid;grid-template-columns:1fr 1fr;min-height:540px}
 .app-cnt{padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center}
-.app-desc{font-size:.92rem;line-height:1.9;color:rgba(255,255,255,.42);font-weight:300;margin:1.2rem 0 2rem}
+.app-desc{font-size:.95rem;line-height:1.9;color:rgba(255,255,255,.72);font-weight:400;margin:1.2rem 0 2rem}
 .app-feats{display:flex;flex-direction:column;gap:.7rem;margin-bottom:2.5rem}
-.af{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:.875rem;padding:.9rem 1.2rem;font-size:.84rem;color:rgba(255,255,255,.65);font-weight:300;transition:border-color .2s}
-.af:hover{border-color:rgba(184,137,58,.3)}
+.af{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:.875rem;padding:.9rem 1.2rem;font-size:.86rem;color:rgba(255,255,255,.8);font-weight:400;transition:border-color .2s}
+.af:hover{border-color:rgba(200,152,64,.4)}
 .af .ai{font-size:1rem;flex-shrink:0}
-.af strong{color:#fff;font-weight:500}
+.af strong{color:#fff;font-weight:600}
 .app-vis{position:relative;overflow:hidden}
 .app-vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .app-vis::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--ink) 0%,transparent 40%)}
@@ -121,9 +123,9 @@
 .tc:hover{transform:translateY(-4px);box-shadow:0 16px 44px rgba(184,137,58,.1)}
 .tc::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--gold-xl);line-height:1;position:absolute;top:.75rem;right:1.5rem;opacity:.5}
 .tc-stars{color:var(--gold);font-size:.76rem;letter-spacing:.06em;margin-bottom:.9rem}
-.tc-txt{font-size:.88rem;line-height:1.78;color:var(--muted);font-weight:300;font-style:italic;margin-bottom:1.4rem}
-.tc-auth{font-size:.76rem;font-weight:600;color:var(--brown)}
-.tc-loc{font-size:.7rem;color:var(--muted);font-weight:300}
+.tc-txt{font-size:.9rem;line-height:1.78;color:rgba(14,9,5,0.72);font-weight:400;font-style:italic;margin-bottom:1.4rem}
+.tc-auth{font-size:.78rem;font-weight:700;color:var(--brown)}
+.tc-loc{font-size:.72rem;color:rgba(14,9,5,0.55);font-weight:400}
 
 /* PREISE */
 .price-sec{background:var(--warm);padding:7rem 5rem}
@@ -161,7 +163,7 @@
 
 /* NEWSLETTER */
 .nl-sec{background:var(--brown);padding:5rem;text-align:center}
-.nl-sub{font-size:.92rem;color:rgba(255,255,255,.45);font-weight:300;margin-bottom:2.5rem;line-height:1.8}
+.nl-sub{font-size:.95rem;color:rgba(255,255,255,.72);font-weight:400;margin-bottom:2.5rem;line-height:1.8}
 .nl-form{display:flex;gap:.75rem;max-width:440px;margin:0 auto}
 .nl-form input{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:.85rem 1.4rem;font-size:.86rem;color:#fff;font-family:'Jost',sans-serif;outline:none;transition:border-color .2s}
 .nl-form input::placeholder{color:rgba(255,255,255,.3)}
@@ -170,9 +172,11 @@
 .nl-form button:hover{background:var(--gold-d);transform:translateY(-1px)}
 
 @media(max-width:1024px){
+  .reveal{opacity:1 !important;transform:none !important}
   .hero{grid-template-columns:1fr}
-  .hero-r{min-height:320px;position:relative}
-  .hero-r img{position:relative;width:100%;height:320px;object-fit:cover}
+  .hero-r{min-height:480px;position:relative}
+  .hero-r video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+  .hero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 80%}
   .hero-r::before{display:none}
   .hero-l::after{display:none}
   .about,.firmen-sec,.app-sec{grid-template-columns:1fr}
@@ -180,13 +184,15 @@
   .about-photo img{position:relative;width:100%;height:320px;object-fit:cover;object-position:top}
   .app-vis{min-height:280px;position:relative}
   .app-vis img{position:relative;width:100%;height:280px;object-fit:cover}
-  .app-vis::after{background:linear-gradient(to bottom,var(--ink) 0%,transparent 40%)}
   .numbers{grid-template-columns:1fr 1fr}
   .num{border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
   .svc-sec{padding:4rem 1.5rem}
-  .svc-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
-  .sc.p1,.sc.p2,.sc.p3,.sc.p4{grid-column:span 1;min-height:280px;grid-row:span 1}
-  .tgrid{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr !important;grid-template-rows:auto}
+  .sc.p1,.sc.p2,.sc.p3,.sc.p4{grid-column:span 1 !important;min-height:320px;grid-row:span 1 !important}
+  .sc-body{padding:1.5rem}
+  .sc h3{font-size:1.4rem}
+  .tgrid{grid-template-columns:1fr !important;display:grid !important}
+  .tc{display:block !important;opacity:1 !important;visibility:visible !important}
   .price-layout{grid-template-columns:1fr}
   .pgrid{grid-template-columns:1fr 1fr}
   .nl-sec{padding:4rem 1.5rem}
@@ -194,16 +200,42 @@
   .firmen-sec{gap:3rem}
   .app-cnt{padding:4rem 1.5rem}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
 </style>
 </head>
 <body>
 
 <nav id="nav">
   <a href="index.html" class="logo"><span class="logo-orb">by</span>beyour-self.ch</a>
-  <button class="nav-burger" id="burger" aria-label="Menü öffnen" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links" id="navLinks">
+  <ul class="nav-links">
     <li><a href="#angebote">Angebote</a></li>
     <li><a href="#firmen">Firmen</a></li>
     <li><a href="veranstaltungen.html">Events</a></li>
@@ -214,7 +246,7 @@
   <div class="nav-r">
     <a href="shop.html" class="nav-shop">Shop</a>
     <a href="member.html" class="nav-member">✦ Mitglieder</a>
-    <a href="kontakt.html" class="nav-cta">Gratis Gespräch</a>
+    <a href="kontakt.html" class="nav-cta">Kostenloses 1. Gespräch</a>
   </div>
 </nav>
 
@@ -223,9 +255,9 @@
   <div class="hero-l">
     <div class="h-eye">Münsingen · Online · International</div>
     <h1>Fühl dich wieder<br><em>vollständig.</em></h1>
-    <p class="hero-sub">Körpertherapie. Zertifizierte Gesundheitsberatung. Personal Training — alles aus einer Hand, für Menschen, die bereit sind für echte Veränderung.</p>
+    <p class="hero-sub">Körpertherapie · Zertifizierte Gesundheitsberatung nach Dr. med. Rüdiger Dahlke · Personal Training — für Menschen, die bereit sind für echte Veränderung.</p>
     <div class="hero-btns">
-      <a href="kontakt.html" class="btn-gold">Gratis Erstgespräch →</a>
+      <a href="kontakt.html" class="btn-gold">Kostenloses 1. Gespräch →</a>
       <a href="#angebote" class="btn-line">Angebote entdecken</a>
     </div>
     <div class="hero-trust">
@@ -236,7 +268,10 @@
     </div>
   </div>
   <div class="hero-r">
-    <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=900&q=80" alt="Körpertherapie & Massage — beyour-self.ch">
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top">
+      <source src="massage_1_.mp4" type="video/mp4">
+    </video>
+    <img src="hero_massage.jpg" alt="Massage & Wellness" id="hero-img">
     <div class="hero-pill">
       <div class="hp-lbl">Nächste freie Termine</div>
       <div class="hp-val">Online & Praxis</div>
@@ -309,8 +344,8 @@
     <a href="kontakt.html" class="btn-gold">Termin buchen →</a>
   </div>
   <div class="svc-grid">
-    <div class="sc p1">
-      <img class="sc-img" src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=900&q=80" alt="Körpertherapie & Massage">
+    <a href="kontakt.html" class="sc p1" style="text-decoration:none;display:block">
+      <img class="sc-img" src="massage_kachel.jpg" alt="Körpertherapie & Massage">
       <div class="sc-ov"></div>
       <div class="sc-body">
         <div class="sc-tag">🌿 Körpertherapie & Massage</div>
@@ -318,33 +353,41 @@
         <p>Schmerzen lösen · Körperbewusstsein stärken · Lebendigkeit zurückgewinnen. Körperliche Entspannung löst mentale Spannung — Klarheit entsteht.</p>
         <span class="sc-chip">📍 Praxis · Online</span>
       </div>
-    </div>
-    <div class="sc p2 sol-brown">
+    </a>
+    <a href="kontakt.html" class="sc p2 sol-brown" style="text-decoration:none;display:block">
       <div class="sc-body t">
         <div class="sc-tag">🧠 Für Einzelpersonen</div>
-        <h3>Zertifizierte Gesundheitsberatung</h3>
-        <p>Symptome anders beleuchten. Blockaden erkennen. Ressourcen freisetzen. Disbalance wandeln und Gesundheit fördern — in der Praxis, in der Natur oder online.</p>
+        <h3 style="text-shadow:0 2px 12px rgba(0,0,0,0.5)">Zertifizierte Gesundheitsberatung</h3>
+        <p style="text-shadow:0 1px 6px rgba(0,0,0,0.4)">Symptome anders beleuchten. Blockaden erkennen. Ressourcen freisetzen. Disbalance wandeln und Gesundheit fördern — in der Praxis, in der Natur oder online.</p>
         <span class="sc-chip">nach Dr. med. Dahlke</span>
       </div>
-    </div>
-    <div class="sc p3 sol-warm">
+      <div style="position:absolute;bottom:1.5rem;right:1.5rem;z-index:4">
+        <img src="joerg_spitz.jpg" alt="Prof. Dr. med. Jörg Spitz" style="width:70px;height:70px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.3)">
+      </div>
+    </a>
+    <a href="kontakt.html" class="sc p3 sol-warm" style="text-decoration:none;display:block">
+      <img class="sc-img" src="team.jpg" alt="Team" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.65">
+      <div class="sc-ov" style="background:linear-gradient(to top,rgba(243,237,227,.85) 0%,rgba(243,237,227,.2) 100%)"></div>
       <div class="sc-body t">
         <div class="sc-tag">🏢 Firmen & Teams</div>
         <h3>Struktur & Teamberatung</h3>
         <p>Resiliente Teams. Tiefere Krankheitskosten. Massgeschneidert für dein Unternehmen.</p>
         <span class="sc-chip">Individuelles Angebot</span>
       </div>
-    </div>
-    <div class="sc p4">
+    </a>
+    <a href="https://honestcoach.app" target="_blank" class="sc p4" style="text-decoration:none;display:block">
       <img class="sc-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&q=80" alt="Personal Training">
       <div class="sc-ov"></div>
       <div class="sc-body">
         <div class="sc-tag">💪 Personal Training</div>
         <h3>Mit honestcoach.app transformierst du dich</h3>
-        <p>Echte Daten, klare Pläne, direktes Feedback — mit Renato Götschmann, Dipl. Experte Notfallpflege NDS HF & 3. Platz WM Bankdrücken.</p>
+        <p>Echte Daten, klare Pläne, direktes Feedback — mit Renato Götschmann, Dipl. Experte Notfallpflege NDS HF & Bench WM Teilnehmer (3. Platz).</p>
         <span class="sc-chip">📱 honestcoach.app · Persönlich</span>
       </div>
-    </div>
+    </a>
+  </div>
+  <div style="margin-top:2rem;background:var(--warm);border-radius:1rem;padding:1.1rem 1.5rem;border-left:3px solid var(--gold);font-size:.82rem;color:rgba(14,9,5,0.62);font-weight:400;line-height:1.7">
+    ⚕️ <strong>Hinweis:</strong> Die Produkte und Behandlungen ersetzen keine medizinischen Behandlungen und sollten immer mit dem zuständigen Arzt besprochen werden.
   </div>
 </section>
 
@@ -382,7 +425,7 @@
   <div class="app-cnt">
     <div class="eye light">Personal Training</div>
     <h2 class="h2 w">Dein Coach.<br><em>Immer dabei.</em></h2>
-    <p class="app-desc">Mit der honestcoach.app transformierst du dich mit echten Daten, klaren Plänen und direktem Feedback — gemeinsam mit Renato Götschmann, Dipl. Experte/in Notfallpflege NDS HF & 3. Platz WM Bankdrücken.</p>
+    <p class="app-desc">Mit der honestcoach.app transformierst du dich mit echten Daten, klaren Plänen und direktem Feedback oder du holst dir ein Personaltraining für Kraftaufbau — gemeinsam mit Renato Götschmann, Dipl. Experte/in Notfallpflege NDS HF & Bench WM Teilnehmer (3. Platz).</p>
     <div class="app-feats">
       <div class="af"><span class="ai">📊</span><div><strong>Kalorienanalyse</strong> — Foto hochladen, Makros sofort erhalten</div></div>
       <div class="af"><span class="ai">🎯</span><div><strong>Individueller Ernährungs- & Fitnessplan</strong> — auf dich zugeschnitten</div></div>
@@ -405,11 +448,33 @@
   <h2 class="h2">Was sie <em>erfahren haben</em></h2>
   <div class="tgrid">
     <div class="tc d1"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Wenn Fragen zu Antworten führen und dies bereits nach kurzer Zeit spürbar ist — dann teile ich das gerne weiter. JA zu einer Weiterempfehlung."</p><div class="tc-auth">C.L.</div><div class="tc-loc">Deutschland</div></div>
-    <div class="tc d2"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Das war eine Sternstunde! Ich habe meine Gefühle sortiert und auf dem Grund mein Sonnenkind wieder gefunden."</p><div class="tc-auth">Ch.B.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d2"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Das war eine Sternstunde! Ich habe meine Gefühle sortiert und auf dem Grund mein Sonnenkind wieder gefunden!"</p><div class="tc-auth">Ch.B.</div><div class="tc-loc">Schweiz</div></div>
     <div class="tc d3"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Du hast die Gabe, Menschen auch online zu erspüren und zum Kernpunkt zu begleiten. Gesammelter und fokussierter konnte ich meinen Event kraftvoll erleben."</p><div class="tc-auth">H.B.</div><div class="tc-loc">Süd-Sinai</div></div>
     <div class="tc d1"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Ich schwebe so dahin wie eine Tänzerin. Unsere Treffen sind so nährend — ich danke dir von Herzen für deine Zeit und deine Gabe!"</p><div class="tc-auth">A.M.</div><div class="tc-loc">Österreich</div></div>
     <div class="tc d2"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Vor der Massage hatte ich Schmerzen im Bein, die mich kaum schlafen liessen. Nach der Massage — wie weggewischt."</p><div class="tc-auth">B.K.</div><div class="tc-loc">Schweiz</div></div>
-    <div class="tc d3"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Es hat mir bei der Selbstreflexion geholfen und mir neue Perspektiven eröffnet, die ich alleine nicht gesehen hätte."</p><div class="tc-auth">A.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d3"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Es hat mir bei der Selbstreflexion geholfen und mir neue Perspektiven eröffnet, die ich alleine nicht gesehen hätte."</p><div class="tc-auth">A.R.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d1"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Es tuet mer guet; es isch e Wohlfüelstund!" — „Ich fühle mich anschliessend wieder ganz!"</p><div class="tc-auth">Ehepaar B.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d2"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Manuela begleitete mich in einer aufregenden und unsicheren Zeit. Wir fanden die Wurzeln der Verhinderung — ich beantragte das Visum erneut und bekam am nächsten Tag die Bewilligung. Was für ein Geschenk!"</p><div class="tc-auth">S.H.</div><div class="tc-loc">Singapur</div></div>
+    <div class="tc d3"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Ich lasse mich schon über 10 Jahre von Manuela massieren. Nicht nur die professionelle Massage, sondern auch die interessanten Gespräche schätze ich sehr."</p><div class="tc-auth">A.B.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d1"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Manuela ist nicht nur eine kompetente Ansprechpartnerin, sondern wahrhaft am Menschen interessiert. Klar, lösungsorientiert — eine Empfehlung aus ganzem Herzen!"</p><div class="tc-auth">J.L.</div><div class="tc-loc">Deutschland</div></div>
+    <div class="tc d2"><div class="tc-stars">★★★★★</div><p class="tc-txt">„beyourself bietet einen wundervollen Früchtekorb an Dingen, die uns Menschen zurück zu Gesundheit und Lebendigkeit führen — höchste Qualität und ein Team mit Herz."</p><div class="tc-auth">A.W.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d3"><div class="tc-stars">★★★★★</div><p class="tc-txt">„In den Gesprächen, die wir in der Tiefe führen durften, haben sich wertvolle Erkenntnisse gezeigt. Danke für dein Sein, für deine tiefgehenden Fragen und den heilsamen Raum."</p><div class="tc-auth">D.B.</div><div class="tc-loc">Deutschland</div></div>
+    <div class="tc d1"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Manuela zeigt mir mit den richtigen Fragen immer genau, wo ich hinschauen darf. Sie strahlt so viel Liebe und Gelassenheit aus, dass ich mich einfach wohlfühle."</p><div class="tc-auth">N.J.</div><div class="tc-loc">Deutschland</div></div>
+    <div class="tc d2"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Seit über 10 Jahren gehe ich regelmässig zu Manuela. Sie knetet nicht nur Muskeln — sie gibt auch Unterstützung im energetischen Bereich. Ich geniesse es sehr."</p><div class="tc-auth">F.E.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d3"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Manuela begleitet mich emotional, fachlich und menschlich jederzeit — und das ist das Wertvollste, was wir Menschen erleben können."</p><div class="tc-auth">G.C.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d1"><div class="tc-stars">★★★★★</div><p class="tc-txt">„In einer schwierigen Lebenssituation gab mir die Massage wieder Kraft und Halt. Manuela ist sehr einfühlsam und versteht es, Mut zu geben."</p><div class="tc-auth">D.W.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d2"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Den Angst-Workshop habe ich als absolut bereichernd empfunden — neue Denkansätze, Gefühle und Empfindungen. Ich kann es jedem empfehlen."</p><div class="tc-auth">T.Z.</div><div class="tc-loc">Deutschland</div></div>
+    <div class="tc d3"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Janine und Manu haben mit ihrem Angst-Workshop eine wundervolle Möglichkeit geschaffen, den eigenen Ängsten auf Augenhöhe zu begegnen. Die Gruppencoachings sind das absolute Highlight."</p><div class="tc-auth">D.O.</div><div class="tc-loc">Deutschland</div></div>
+    <div class="tc d1"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Von Herzen danke ich euch für eure Arbeit. Wenn ich nicht weiterkomme, melde ich mich gerne für ein Coaching bei euch an."</p><div class="tc-auth">E.B.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d2"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Merci fär ALLES und dini Ratschläg 👍 Finus änz spannend die Gespräche mit diär und dini Art miär du Spiegel zeigu — hab där Sorg, settigi Menschen wiä du, brüchs uf der Welt 😘"</p><div class="tc-auth">R.K.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d3"><div class="tc-stars">★★★★★</div><p class="tc-txt">„War ich doch so skeptisch gegenüber einem Coaching — umso überraschter war ich, wie offen ich zu erzählen begann. Eine sehr aufschlussreiche Erfahrung."</p><div class="tc-auth">N.Z.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d1"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Manuela ist meine sympathische Kundenberaterin. Die Beratung ist ohne Zwang und Verpflichtungen — für Rückfragen immer ein offenes Ohr."</p><div class="tc-auth">C.H.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d2"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Manuela.... du bist gerade mein Fels in der Brandung 🌈 Ich fühle mich gerade nur Mensch. Toll, so in eine neue Zukunft zu gehen mit starken Partnern an der Seite."</p><div class="tc-auth">D.R.</div><div class="tc-loc">Bolivien</div></div>
+    <div class="tc d3"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Manuela hat mich kompetent, ganzheitlich und freudvoll beraten. Die Basisprodukte sind eingetroffen und ich bin begeistert — ebenso mein Partner, der erst skeptisch war."</p><div class="tc-auth">St.H.</div><div class="tc-loc">Deutschland</div></div>
+    <div class="tc d1"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Habe Manuela auf meiner Arbeit kennengelernt. Ihre Massagen sind für mich jedes Mal eine Wohltat. Fühle mich danach tiefenentspannt."</p><div class="tc-auth">J.G.</div><div class="tc-loc">Schweiz</div></div>
+    <div class="tc d2"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Ich empfehle Sie und Ihre Arbeit voll und ganz."</p><div class="tc-auth">Anonym</div><div class="tc-loc"></div></div>
+    <div class="tc d3"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Ich bin mega happy mit den kalifornischen Bachblüten!"</p><div class="tc-auth">N.J.</div><div class="tc-loc">Deutschland</div></div>
+    <div class="tc d1"><div class="tc-stars">★★★★★</div><p class="tc-txt">„Der kalifornische Bachblütenspray hilft vor allem in schlaflosen Nächten."</p><div class="tc-auth">B.</div><div class="tc-loc">Schweiz</div></div>
   </div>
 </section>
 
@@ -474,7 +539,18 @@
 
 <script src="main.js"></script>
 <script>
-function nlSub(){
+// Hero: Foto → Video mit fliessendem Übergang
+(function(){
+  const img = document.getElementById('hero-img');
+  const video = document.querySelector('.hero-r video');
+  if(!img || !video) return;
+  // Warte bis Video läuft, dann Foto sanft ausblenden
+  video.addEventListener('playing', function(){
+    setTimeout(function(){
+      img.classList.add('fade-out');
+    }, 600); // kurze Pause damit es nicht abrupt wirkt
+  }, {once: true});
+})();
   const e=document.getElementById('nlEmail');
   const b=document.querySelector('.nl-form button');
   if(e.value&&e.value.includes('@')){b.textContent='✓ Danke!';b.style.background='var(--gold-d)';e.value='';}

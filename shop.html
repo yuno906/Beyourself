@@ -59,8 +59,12 @@
 .vitals-feel h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:.75rem}
 .vitals-feel p{font-size:.9rem;line-height:1.8;color:var(--muted);font-weight:300;margin-bottom:1.5rem}
 .vitals-cats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-.vcat{background:var(--warm);border-radius:1rem;padding:1.25rem;border:1px solid var(--bord);transition:transform .2s,border-color .2s;text-decoration:none;display:block}
+.vcat{background:var(--warm);border-radius:1rem;overflow:hidden;border:1px solid var(--bord);transition:transform .2s,border-color .2s;text-decoration:none;display:block}
 .vcat:hover{transform:translateX(4px);border-color:var(--gold)}
+.vcat-media{height:140px;overflow:hidden;position:relative;background:var(--linen)}
+.vcat-media img,.vcat-media video{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.vcat:hover .vcat-media img,.vcat:hover .vcat-media video{transform:scale(1.05)}
+.vcat-body{padding:1.25rem}
 .vcat-title{font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:.25rem}
 .vcat-desc{font-size:.8rem;color:var(--muted);font-weight:300;line-height:1.5}
 .vcat-arrow{color:var(--gold);font-size:.85rem;margin-top:.5rem;display:block}
@@ -101,8 +105,7 @@
 
 <nav id="nav">
   <a href="index.html" class="logo"><span class="logo-orb">by</span>beyour-self.ch</a>
-  <button class="nav-burger" id="burger" aria-label="Menü öffnen" onclick="toggleMenu()"><span></span><span></span><span></span></button>
-  <ul class="nav-links" id="navLinks">
+  <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="index.html#angebote">Angebote</a></li>
     <li><a href="veranstaltungen.html">Events</a></li>
@@ -111,7 +114,7 @@
   <div class="nav-r">
     <a href="shop.html" class="nav-member active">Shop</a>
     <a href="member.html" class="nav-shop">Mitglieder</a>
-    <a href="kontakt.html" class="nav-cta">Gratis Gespräch</a>
+    <a href="kontakt.html" class="nav-cta">Kostenloses 1. Gespräch</a>
   </div>
 </nav>
 
@@ -187,11 +190,13 @@
 
     <!-- MANGOMEGA -->
     <div class="prod-card">
-      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80" alt="Omega-3 Vitalstoffe"></div>
+      <div class="prod-card-img" style="padding:0;overflow:hidden">
+        <img src="omega3.jpg" alt="Vitalstoffe Omega-3" style="width:100%;height:100%;object-fit:cover">
+      </div>
       <div class="prod-card-body">
         <div class="prod-card-tag">Omega-3 · Vitalstoff</div>
-        <h3>MangoMega von Life Plus</h3>
-        <p>Hochwertige Omega-3-Fettsäuren in leckerem Mango-Geschmack. Unterstützt Herz, Gehirn und Entzündungshemmung — für die ganze Familie.</p>
+        <h3>Vitalstoffe und Naturkosmetik</h3>
+        <p>Hochwertige Omega-3-Fettsäuren, L-Arginin, Mariendistel, OPC — wir bieten Alternativen für die ganze Familie.</p>
         <div class="prod-card-footer">
           <span class="prod-price">Auf Anfrage</span>
           <a href="mailto:beyourself2026@outlook.com?subject=Anfrage MangoMega" class="btn-gold btn-sm">Anfragen</a>
@@ -201,7 +206,9 @@
 
     <!-- BACHBLÜTEN -->
     <div class="prod-card">
-      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1591084728795-1149f32d9866?w=600&q=80" alt="Bachblüten"></div>
+      <div class="prod-card-img" style="padding:0;overflow:hidden">
+        <img src="bachblueten2.jpg" alt="Kalifornische Bachblüten" style="width:100%;height:100%;object-fit:cover;object-position:center 30%">
+      </div>
       <div class="prod-card-body">
         <div class="prod-card-tag">Bachblüten · Emotional Balance</div>
         <h3>Kalifornische Bachblüten</h3>
@@ -213,19 +220,9 @@
       </div>
     </div>
 
-    <!-- BERATUNG -->
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Persönliche Beratung"></div>
-      <div class="prod-card-body">
-        <div class="prod-card-tag">Beratung · Persönlich</div>
-        <h3>Persönliche Produktberatung</h3>
-        <p>Du suchst etwas Bestimmtes? Über 100 sorgfältig ausgewählte Produkte. Ich berate dich kostenlos und persönlich — damit du genau das Richtige findest.</p>
-        <div class="prod-card-footer">
-          <span class="prod-price">Gratis</span>
-          <a href="kontakt.html" class="btn-gold btn-sm">Kontakt</a>
-        </div>
-      </div>
-    </div>
+  </div>
+  <div style="margin-top:2rem;background:var(--warm);border-radius:1rem;padding:1.1rem 1.5rem;border-left:3px solid var(--gold);font-size:.82rem;color:rgba(14,9,5,0.62);font-weight:400;line-height:1.7">
+    ⚕️ <strong>Hinweis:</strong> Die Produkte und Behandlungen ersetzen keine medizinischen Behandlungen und sollten immer mit dem zuständigen Arzt besprochen werden.
   </div>
 </section>
 
@@ -245,44 +242,36 @@
 
   <div class="vitals-cats">
     <a href="https://ww1.lifeplus.com/shd558/m/ch/de/web-page/products?tags=tag_packs" target="_blank" class="vcat">
-      <div class="vcat-title">💊 Vitamine & Mineralstoffe</div>
-      <div class="vcat-desc">Das umfassende Sortiment deckt alle körperlichen Ansprüche ab</div>
-      <span class="vcat-arrow">→ Entdecken</span>
+      <div class="vcat-media"><img src="omega3.jpg" alt="Omega Kapseln"></div>
+      <div class="vcat-body"><div class="vcat-title">💊 Vitamine & Mineralstoffe</div><div class="vcat-desc">Das umfassende Sortiment deckt alle körperlichen Ansprüche ab</div><span class="vcat-arrow">→ Entdecken</span></div>
     </a>
     <a href="https://ww1.lifeplus.com/shd558/m/ch/de/web-page/products?tags=tag_immune_support,tag_packs" target="_blank" class="vcat">
-      <div class="vcat-title">🌿 Darmflora & Detox</div>
-      <div class="vcat-desc">Entschlacken, entsäuern & pflegen für bessere Nährstoffaufnahme</div>
-      <span class="vcat-arrow">→ Entdecken</span>
+      <div class="vcat-media"><img src="detox.jpg" alt="Grüner Smoothie"></div>
+      <div class="vcat-body"><div class="vcat-title">🌿 Darmflora & Detox</div><div class="vcat-desc">Entschlacken, entsäuern & pflegen für bessere Nährstoffaufnahme</div><span class="vcat-arrow">→ Entdecken</span></div>
     </a>
     <a href="https://ww1.lifeplus.com/shd558/m/ch/de/web-page/products?tags=tag_sports_nutrition" target="_blank" class="vcat">
-      <div class="vcat-title">🏋️ Sportprodukte</div>
-      <div class="vcat-desc">Essentielle Makronährstoffe — auch für Leistungssport</div>
-      <span class="vcat-arrow">→ Entdecken</span>
+      <div class="vcat-media"><img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&q=80" alt="Sportlerin"></div>
+      <div class="vcat-body"><div class="vcat-title">🏋️ Sportprodukte</div><div class="vcat-desc">Essentielle Makronährstoffe — auch für Leistungssport</div><span class="vcat-arrow">→ Entdecken</span></div>
     </a>
     <a href="https://ww1.lifeplus.com/shd558/m/ch/de/web-page/products?tags=tag_weight_balance" target="_blank" class="vcat">
-      <div class="vcat-title">⚖️ Gewichts-Balance</div>
-      <div class="vcat-desc">Ab- oder Zunehmen — die richtigen Produkte für dein Ziel</div>
-      <span class="vcat-arrow">→ Entdecken</span>
+      <div class="vcat-media"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Gewichts-Balance"></div>
+      <div class="vcat-body"><div class="vcat-title">⚖️ Gewichts-Balance</div><div class="vcat-desc">Ab- oder Zunehmen — die richtigen Produkte für dein Ziel</div><span class="vcat-arrow">→ Entdecken</span></div>
     </a>
     <a href="https://ww1.lifeplus.com/shd558/m/de/de/web-page/products?tags=tag_energy,tag_multi_vitamins_minerals" target="_blank" class="vcat">
-      <div class="vcat-title">😴 Schlaf & Konzentration</div>
-      <div class="vcat-desc">Tiefschlaf fördern & Wachphasen optimieren</div>
-      <span class="vcat-arrow">→ Entdecken</span>
+      <div class="vcat-media"><img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&q=80" alt="Schlaf"></div>
+      <div class="vcat-body"><div class="vcat-title">😴 Schlaf & Konzentration</div><div class="vcat-desc">Tiefschlaf fördern & Wachphasen optimieren</div><span class="vcat-arrow">→ Entdecken</span></div>
     </a>
     <a href="https://ww1.lifeplus.com/shd558/m/de/de/web-page/products?tags=tag_healthy_ageing" target="_blank" class="vcat">
-      <div class="vcat-title">✨ Hautalterung</div>
-      <div class="vcat-desc">Langwährender Erfolg von Innen durch Makronährstoffe</div>
-      <span class="vcat-arrow">→ Entdecken</span>
+      <div class="vcat-media"><img src="spirulina.jpg" alt="Hautalterung"></div>
+      <div class="vcat-body"><div class="vcat-title">✨ Hautalterung</div><div class="vcat-desc">Langwährender Erfolg von Innen durch Makronährstoffe</div><span class="vcat-arrow">→ Entdecken</span></div>
     </a>
     <a href="https://ww1.lifeplus.com/shd558/m/de/de/web-page/products?tags=tag_superfoods&show=12" target="_blank" class="vcat">
-      <div class="vcat-title">🌱 Supernahrungsmittel</div>
-      <div class="vcat-desc">Potente pflanzliche Nährstoffe — ohne negative Inhaltsstoffe</div>
-      <span class="vcat-arrow">→ Entdecken</span>
+      <div class="vcat-media"><img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=600&q=80" alt="Blaubeeren"></div>
+      <div class="vcat-body"><div class="vcat-title">🌱 Supernahrungsmittel</div><div class="vcat-desc">Potente pflanzliche Nährstoffe — ohne negative Inhaltsstoffe</div><span class="vcat-arrow">→ Entdecken</span></div>
     </a>
     <a href="https://ww1.lifeplus.com/shd558/m/de/de/web-page/products?tags=tag_all_skincare_skin_health&show=12" target="_blank" class="vcat">
-      <div class="vcat-title">💆 Luxuriöse Naturkosmetik</div>
-      <div class="vcat-desc">Keine unnötigen Zusatzstoffe über die Haut aufnehmen</div>
-      <span class="vcat-arrow">→ Entdecken</span>
+      <div class="vcat-media"><img src="naturkosmetik2.jpg" alt="Naturkosmetik"></div>
+      <div class="vcat-body"><div class="vcat-title">💆 Luxuriöse Naturkosmetik</div><div class="vcat-desc">Keine unnötigen Zusatzstoffe über die Haut aufnehmen</div><span class="vcat-arrow">→ Entdecken</span></div>
     </a>
   </div>
 </section>
@@ -293,8 +282,8 @@
   <h2 class="h2" style="margin-bottom:3rem">Geschenkkarte —<br><em>immer eine gute Idee.</em></h2>
   <div class="gift-layout">
     <div>
-      <div class="gift-visual">
-        <img src="geschenkkarte.jpg" alt="Geschenkkarte">
+      <div class="gift-visual" style="min-height:320px;overflow:hidden;border-radius:1.5rem;box-shadow:0 20px 60px rgba(28,18,8,.1)">
+        <img src="geschenkkarte_neu.jpg" alt="Geschenkkarte" style="width:100%;height:100%;object-fit:cover;display:block">
       </div>
     </div>
     <div>
