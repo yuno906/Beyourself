@@ -38,8 +38,8 @@
 
 /* ABOUT */
 .about{background:var(--white);display:grid;grid-template-columns:1fr 1fr;min-height:640px}
-.about-photo{position:relative;overflow:hidden}
-.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.about-photo{position:relative;overflow:hidden;background:#c9b99a}
+.about-photo img{width:100%;height:100%;object-fit:contain;object-position:center top}
 .about-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(61,40,16,.22) 0%,transparent 55%)}
 .about-q{position:absolute;bottom:2rem;left:2rem;right:2rem;z-index:2;background:rgba(250,247,242,.95);backdrop-filter:blur(14px);border-radius:.875rem;padding:1.25rem 1.5rem;border-left:3px solid var(--gold)}
 .aq-lbl{font-size:.58rem;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:400;margin-bottom:.4rem}
@@ -180,8 +180,8 @@
   .hero-r::before{display:none}
   .hero-l::after{display:none}
   .about,.firmen-sec,.app-sec{grid-template-columns:1fr}
-  .about-photo{min-height:320px;position:relative}
-  .about-photo img{position:relative;width:100%;height:320px;object-fit:cover;object-position:top}
+  .about-photo{min-height:380px;position:relative;background:#c9b99a}
+  .about-photo img{position:relative;width:100%;height:auto;object-fit:contain;object-position:center top}
   .app-vis{min-height:280px;position:relative}
   .app-vis img{position:relative;width:100%;height:280px;object-fit:cover}
   .numbers{grid-template-columns:1fr 1fr}
@@ -199,6 +199,29 @@
   .nl-form{flex-direction:column}
   .firmen-sec{gap:3rem}
   .app-cnt{padding:4rem 1.5rem}
+}
+
+@media(max-width:600px){
+  /* Hero: Bild kleiner, Text zuerst */
+  .hero{display:flex;flex-direction:column}
+  .hero-l{padding:2.5rem 1.25rem 2rem;order:1}
+  .hero-r{min-height:280px;order:2}
+  .hero-r video,.hero-r img{object-position:center 20%}
+  .hero-pill{left:1rem;right:1rem;bottom:1rem;padding:.9rem 1.1rem}
+
+  /* About-Foto kürzer */
+  .about-photo img{height:auto;object-fit:contain;object-position:center top}
+  .about-photo{min-height:unset}
+
+  /* Allgemeines Padding */
+  .sec,.page-hero{padding:4rem 1.25rem}
+  .about-cnt{padding:3rem 1.25rem}
+
+  /* Zahlen-Grid */
+  .numbers{grid-template-columns:1fr}
+
+  /* Preise */
+  .pgrid{grid-template-columns:1fr}
 }
 
 
@@ -257,7 +280,7 @@
     <h1>Fühl dich wieder<br><em>vollständig.</em></h1>
     <p class="hero-sub">Körpertherapie · Zertifizierte Gesundheitsberatung nach Dr. med. Rüdiger Dahlke · Personal Training — für Menschen, die bereit sind für echte Veränderung.</p>
     <div class="hero-btns">
-      <a href="kontakt.html" class="btn-gold">Kostenloses 1. Gespräch →</a>
+      <a href="https://cal.eu/manuela-zaugg-z5vjk1" target="_blank" class="btn-gold">Termin buchen →</a>
       <a href="#angebote" class="btn-line">Angebote entdecken</a>
     </div>
     <div class="hero-trust">
@@ -341,10 +364,10 @@
       <div class="eye">Angebote</div>
       <h2 class="h2">Was dich <em>erwartet</em></h2>
     </div>
-    <a href="kontakt.html" class="btn-gold">Termin buchen →</a>
+    <a href="https://cal.eu/manuela-zaugg-z5vjk1" target="_blank" class="btn-gold">Termin buchen →</a>
   </div>
   <div class="svc-grid">
-    <a href="kontakt.html" class="sc p1" style="text-decoration:none;display:block">
+    <a href="https://cal.eu/manuela-zaugg-z5vjk1" target="_blank" class="sc p1" style="text-decoration:none;display:block">
       <img class="sc-img" src="massage_kachel.jpg" alt="Körpertherapie & Massage">
       <div class="sc-ov"></div>
       <div class="sc-body">
@@ -354,7 +377,7 @@
         <span class="sc-chip">📍 Praxis · Online</span>
       </div>
     </a>
-    <a href="kontakt.html" class="sc p2 sol-brown" style="text-decoration:none;display:block">
+    <a href="https://cal.eu/manuela-zaugg-z5vjk1" target="_blank" class="sc p2 sol-brown" style="text-decoration:none;display:block">
       <div class="sc-body t">
         <div class="sc-tag">🧠 Für Einzelpersonen</div>
         <h3 style="text-shadow:0 2px 12px rgba(0,0,0,0.5)">Zertifizierte Gesundheitsberatung</h3>
@@ -365,7 +388,7 @@
         <img src="joerg_spitz.jpg" alt="Prof. Dr. med. Jörg Spitz" style="width:70px;height:70px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.3)">
       </div>
     </a>
-    <a href="kontakt.html" class="sc p3 sol-warm" style="text-decoration:none;display:block">
+    <a href="https://cal.eu/manuela-zaugg-z5vjk1" target="_blank" class="sc p3 sol-warm" style="text-decoration:none;display:block">
       <img class="sc-img" src="team.jpg" alt="Team" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.65">
       <div class="sc-ov" style="background:linear-gradient(to top,rgba(243,237,227,.85) 0%,rgba(243,237,227,.2) 100%)"></div>
       <div class="sc-body t">
@@ -427,14 +450,14 @@
     <h2 class="h2 w">Dein Coach.<br><em>Immer dabei.</em></h2>
     <p class="app-desc">Mit der honestcoach.app transformierst du dich mit echten Daten, klaren Plänen und direktem Feedback oder du holst dir ein Personaltraining für Kraftaufbau — gemeinsam mit Renato Götschmann, Dipl. Experte/in Notfallpflege NDS HF & Bench WM Teilnehmer (3. Platz).</p>
     <div class="app-feats">
-      <div class="af"><span class="ai">📊</span><div><strong>Kalorienanalyse</strong> — Foto hochladen, Makros sofort erhalten</div></div>
-      <div class="af"><span class="ai">🎯</span><div><strong>Individueller Ernährungs- & Fitnessplan</strong> — auf dich zugeschnitten</div></div>
-      <div class="af"><span class="ai">💬</span><div><strong>24/7 Coach-Chat</strong> — ehrliche Antworten, keine Ausreden</div></div>
-      <div class="af"><span class="ai">📈</span><div><strong>Wöchentliche Check-ins</strong> — Fortschritt sichtbar machen</div></div>
+      <div class="af"><span class="ai">📊</span><div><strong>Dein ehrlicher Körperfett-Check</strong> — objektiv und präzise gemessen</div></div>
+      <div class="af"><span class="ai">🎯</span><div><strong>Dein Ziel — realistisch bewertet</strong> — auf dich zugeschnitten</div></div>
+      <div class="af"><span class="ai">📈</span><div><strong>Fortschritt</strong> — lass dir jede Woche deinen Fortschritt objektiv aufzeigen</div></div>
+      <div class="af"><span class="ai">📷</span><div><strong>Scanne Barcodes</strong> oder lade ein Bild deiner Mahlzeit hoch</div></div>
     </div>
     <div style="display:flex;gap:1rem;flex-wrap:wrap">
       <a href="https://honestcoach.app" target="_blank" class="btn-gold">honestcoach.app →</a>
-      <a href="mailto:renato.goetschi@hotmail.com" class="btn-line" style="color:#fff;border-color:rgba(255,255,255,.3)">Renato kontaktieren</a>
+      <a href="mailto:info@honestcoach.app" class="btn-line" style="color:#fff;border-color:rgba(255,255,255,.3)">Renato kontaktieren</a>
     </div>
   </div>
   <div class="app-vis">

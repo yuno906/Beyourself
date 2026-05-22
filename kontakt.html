@@ -7,9 +7,9 @@
 <link rel="stylesheet" href="style.css">
 <style>
 .contact-hero{background:var(--ink);min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px}
-.contact-photo{position:relative;overflow:hidden}
-.contact-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;inset:0}
-.contact-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(61,40,16,.4),rgba(28,18,8,.25))}
+.contact-photo{position:relative;overflow:hidden;background:#b5a090}
+.contact-photo img{width:100%;height:100%;object-fit:contain;object-position:center top;position:absolute;inset:0}
+.contact-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, transparent 60%, var(--warm,#f0ece4) 100%), linear-gradient(to right, var(--warm,#f0ece4) 0%, transparent 8%, transparent 92%, var(--warm,#f0ece4) 100%)}
 .contact-content{background:var(--warm);padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center}
 
 .cdetails{display:flex;flex-direction:column;gap:.85rem;margin:2.5rem 0}
@@ -61,11 +61,30 @@
 
 @media(max-width:1024px){
   .contact-hero{grid-template-columns:1fr}
-  .contact-photo{min-height:280px;position:relative}
-  .contact-photo img{position:relative;width:100%;height:280px;object-fit:cover;object-position:top}
+  .contact-photo{min-height:420px;position:relative;background:#b5a090}
+  .contact-photo img{position:relative;width:100%;height:420px;object-fit:contain;object-position:center top}
   .contact-content{padding:4rem 1.5rem}
   .form-sec{padding:5rem 1.5rem}
   .form-inner{grid-template-columns:1fr;gap:2rem}
+}
+@media(max-width:600px){
+  /* Foto kompakter — nicht halber Screen */
+  .contact-photo img{height:380px;object-fit:contain;object-position:center top}
+  .contact-photo{min-height:380px;background:#b5a090}
+
+  /* Content enger und lesbarer */
+  .contact-content{padding:2.5rem 1.25rem}
+
+  /* Kontakt-Details volle Breite, gut antippbar */
+  .cd{padding:.95rem 1.1rem;gap:.75rem}
+  .cd-val{font-size:.88rem;word-break:break-all}
+
+  /* CTA-Block kompakter */
+  .cta-block{padding:1.4rem 1.25rem}
+  .cta-block a{width:100%;text-align:center;justify-content:center}
+
+  /* Formular */
+  .form-box{padding:1.5rem 1.25rem}
 }
 </style>
 </head>
@@ -119,6 +138,7 @@
 
     <div class="cta-block">
       <p>Starte mit einem kostenlosen Erstgespräch — 15 Minuten, kostenlos, ganz persönlich.</p>
+      <a href="https://cal.eu/manuela-zaugg-z5vjk1" target="_blank" class="btn-gold" style="display:block;text-align:center;margin-bottom:1rem">📅 Termin direkt buchen →</a>
       <a href="https://wa.me/41793352718?text=Kostenloses%201.%20Gespräch%20anfragen" target="_blank">✦ Kostenloses 1. Gespräch — WhatsApp</a>
     </div>
 
@@ -212,7 +232,7 @@ function formSend(){
   msg.style.display='block';
   const subject=document.querySelector('select').value;
   const text=document.querySelector('textarea').value;
-  window.location.href=`mailto:beyourself2026@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+  window.location.href=`mailto:info@honestcoach.app?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
 }
 function toggleFaq(el){
   const a=el.nextElementSibling;
