@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veranstaltungen | beyour-self.ch</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.ev-hero{background:var(--warm);padding:9rem 5rem 4rem;border-bottom:1px solid var(--bord)}
+.ev-body{padding:5rem;background:var(--cream);max-width:1100px;margin:0 auto}
+
+/* FEATURED EVENT */
+.ev-featured{background:var(--white);border-radius:1.75rem;border:1px solid var(--bord);overflow:hidden;display:grid;grid-template-columns:1fr 1.2fr;margin-bottom:3rem;box-shadow:var(--shadow)}
+.ev-img-wrap{position:relative;overflow:hidden;min-height:440px}
+.ev-img-wrap img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.ev-date-badge{position:absolute;top:2rem;left:2rem;background:var(--gold);color:#fff;border-radius:.875rem;padding:.85rem 1.25rem;text-align:center;box-shadow:0 4px 16px rgba(184,137,58,.35)}
+.ev-date-badge .day{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;line-height:1}
+.ev-date-badge .month{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:500;margin-top:.1rem}
+.ev-content{padding:3rem}
+.ev-tag-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.ev-tag{font-size:.64rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;background:var(--warm);color:var(--brown);border:1px solid var(--bord)}
+.ev-tag.highlight{background:var(--gold);color:#fff;border:none}
+.ev-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--ink);line-height:1.15;margin-bottom:1rem}
+.ev-subtitle{font-size:1rem;font-style:italic;color:var(--gold-d);font-family:'Cormorant Garamond',serif;margin-bottom:1.25rem}
+.ev-desc{font-size:.92rem;line-height:1.85;color:var(--muted);font-weight:300;margin-bottom:2rem}
+.ev-meta{display:flex;flex-direction:column;gap:.65rem;margin-bottom:2rem}
+.ev-meta-item{display:flex;align-items:center;gap:.75rem;font-size:.88rem;color:var(--muted);font-weight:300}
+.ev-meta-item .mi{font-size:1.1rem;flex-shrink:0}
+.ev-meta-item strong{color:var(--ink);font-weight:500}
+.ev-spots{background:var(--linen);border-radius:.75rem;padding:.85rem 1.1rem;font-size:.84rem;color:var(--brown);font-weight:500;margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem}
+.ev-cta-row{display:flex;gap:.85rem;flex-wrap:wrap}
+
+/* CALENDAR GRID */
+.calendar-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+.ev-grid{display:flex;flex-direction:column;gap:1.25rem}
+.ev-card{background:var(--white);border-radius:1.25rem;border:1px solid var(--bord);padding:1.75rem;display:grid;grid-template-columns:80px 1fr auto;gap:1.5rem;align-items:center;transition:transform .22s,box-shadow .22s}
+.ev-card:hover{transform:translateX(5px);box-shadow:0 8px 28px rgba(184,137,58,.08)}
+.ev-card-date{text-align:center}
+.ec-day{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--gold-d);line-height:1}
+.ec-month{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:400}
+.ec-year{font-size:.72rem;color:var(--muted);font-weight:300}
+.ev-card-body{}
+.ev-card-body h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--ink);margin-bottom:.35rem}
+.ev-card-body .ec-time{font-size:.82rem;color:var(--muted);font-weight:300;display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem}
+.ev-card-body .ec-loc{font-size:.82rem;color:var(--muted);font-weight:300}
+.ev-card-cta{flex-shrink:0}
+
+/* NEWSLETTER EVENTS */
+.ev-nl{background:var(--brown);border-radius:1.5rem;padding:2.5rem;text-align:center;margin-top:3rem}
+.ev-nl h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:.6rem}
+.ev-nl p{font-size:.88rem;color:rgba(255,255,255,.45);font-weight:300;margin-bottom:1.75rem}
+.ev-nl-form{display:flex;gap:.65rem;max-width:380px;margin:0 auto}
+.ev-nl-form input{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:.75rem 1.25rem;font-size:.86rem;color:#fff;font-family:'Jost',sans-serif;outline:none}
+.ev-nl-form input::placeholder{color:rgba(255,255,255,.3)}
+.ev-nl-form button{background:var(--gold);color:#fff;border:none;border-radius:100px;padding:.75rem 1.4rem;font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:background .2s}
+.ev-nl-form button:hover{background:var(--gold-d)}
+
+@media(max-width:1024px){
+  .ev-hero,.ev-body{padding-left:1.5rem;padding-right:1.5rem}
+  .ev-featured{grid-template-columns:1fr}
+  .ev-img-wrap{min-height:260px}
+  .ev-content{padding:2rem}
+  .ev-card{grid-template-columns:60px 1fr;gap:1rem}
+  .ev-card-cta{grid-column:2;justify-self:start}
+  .ev-nl-form{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="logo"><span class="logo-orb">by</span>beyour-self.ch</a>
+  <button class="nav-burger" id="burger" aria-label="Menü öffnen" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#angebote">Angebote</a></li>
+    <li><a href="veranstaltungen.html" class="active">Events</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <div class="nav-r">
+    <a href="member.html" class="nav-member">✦ Mitglieder</a>
+    <a href="kontakt.html" class="nav-cta">Gratis Gespräch</a>
+  </div>
+</nav>
+
+<div class="ev-hero">
+  <div class="eye">Veranstaltungen</div>
+  <h1 class="h2">Events & <em>Gruppen.</em></h1>
+  <p style="font-size:.95rem;color:var(--muted);font-weight:300;max-width:480px;margin:.75rem 0 0;line-height:1.82">Gemeinsam forschen, wachsen und neue Wege entdecken — in kleinen, persönlichen Gruppen.</p>
+</div>
+
+<div class="ev-body">
+
+  <!-- FEATURED: SUPER-VISION -->
+  <div class="ev-featured reveal">
+    <div class="ev-img-wrap">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80" alt="Super-Vision Gruppe">
+      <div class="ev-date-badge">
+        <div class="day">30</div>
+        <div class="month">Mai 2026</div>
+      </div>
+    </div>
+    <div class="ev-content">
+      <div class="ev-tag-row">
+        <span class="ev-tag highlight">✦ Nächster Termin</span>
+        <span class="ev-tag">Mehrere Termine</span>
+        <span class="ev-tag">Max. 8 Personen</span>
+      </div>
+      <h2 class="ev-title">Super-Vision</h2>
+      <p class="ev-subtitle">Mühelosigkeit statt Daueranspannung.</p>
+      <p class="ev-desc">
+        Ständig am Tun — aber wo bleibst du? Wenn sich dein Alltag oft schwer anfühlt, obwohl du „alles im Griff" hast, ist es Zeit für einen anderen Ansatz.<br><br>
+        In dieser exklusiven Kleingruppe forschen wir gemeinsam zum Thema <strong>Mühelosigkeit und Leichtigkeit</strong>. Du entdeckst, wo du unbewusst Energie verlierst — und wie du deine Ressourcen klüger einsetzt. Weniger kämpfen. Mehr fliessen.
+      </p>
+      <div class="ev-meta">
+        <div class="ev-meta-item"><span class="mi">📅</span><div><strong>30. Mai 2026</strong> · 11:00 – 13:00 Uhr</div></div>
+        <div class="ev-meta-item"><span class="mi">📍</span><div><strong>Rebackerweg 14</strong> · 3110 Münsingen, Schweiz</div></div>
+        <div class="ev-meta-item"><span class="mi">👥</span><div>Supervisions-Gruppe · <strong>max. 8 Personen</strong></div></div>
+        <div class="ev-meta-item"><span class="mi">🔄</span><div>Mehrere Termine geplant</div></div>
+      </div>
+      <div class="ev-spots">🟡 Begrenzte Plätze — frühzeitig anmelden empfohlen</div>
+      <div class="ev-cta-row">
+        <a href="https://wa.me/41793352718?text=Ich%20möchte%20mich%20für%20die%20Super-Vision%20am%2030.%20Mai%20anmelden" target="_blank" class="btn-gold">💬 WhatsApp Anmeldung</a>
+        <a href="mailto:beyourself2026@outlook.com?subject=Anmeldung%20Super-Vision%2030.%20Mai" class="btn-line">✉️ Per Mail anmelden</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEITERE EVENTS -->
+  <div class="calendar-head">
+    <div>
+      <div class="eye">Kalender</div>
+      <h2 class="h2">Weitere <em>Termine</em></h2>
+    </div>
+    <a href="kontakt.html" class="btn-line btn-sm">Alle anfragen</a>
+  </div>
+
+  <div class="ev-grid reveal">
+    <div class="ev-card">
+      <div class="ev-card-date">
+        <div class="ec-day">30</div>
+        <div class="ec-month">Mai</div>
+        <div class="ec-year">2026</div>
+      </div>
+      <div class="ev-card-body">
+        <h3>Super-Vision — Mühelosigkeit & Leichtigkeit</h3>
+        <div class="ec-time">🕐 11:00 – 13:00 Uhr</div>
+        <div class="ec-loc">📍 Rebackerweg 14, 3110 Münsingen</div>
+      </div>
+      <div class="ev-card-cta">
+        <a href="https://wa.me/41793352718?text=Anmeldung%20Super-Vision" target="_blank" class="btn-gold btn-sm">Anmelden</a>
+      </div>
+    </div>
+
+    <div class="ev-card" style="opacity:.7">
+      <div class="ev-card-date">
+        <div class="ec-day">TBD</div>
+        <div class="ec-month">Jun</div>
+        <div class="ec-year">2026</div>
+      </div>
+      <div class="ev-card-body">
+        <h3>Super-Vision — Folgegruppe</h3>
+        <div class="ec-time">🕐 Datum wird bekannt gegeben</div>
+        <div class="ec-loc">📍 Rebackerweg 14, 3110 Münsingen</div>
+      </div>
+      <div class="ev-card-cta">
+        <a href="mailto:beyourself2026@outlook.com?subject=Interesse%20Super-Vision%20Juni" class="btn-line btn-sm">Interesse anmelden</a>
+      </div>
+    </div>
+
+    <div class="ev-card" style="opacity:.7">
+      <div class="ev-card-date">
+        <div class="ec-day">∞</div>
+        <div class="ec-month">Laufend</div>
+        <div class="ec-year">2026</div>
+      </div>
+      <div class="ev-card-body">
+        <h3>Einzelberatung & Coaching</h3>
+        <div class="ec-time">🕐 Nach Vereinbarung</div>
+        <div class="ec-loc">📍 Praxis · Natur · Online</div>
+      </div>
+      <div class="ev-card-cta">
+        <a href="kontakt.html" class="btn-gold btn-sm">Buchen</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="ev-nl reveal">
+    <h3>Keine Events verpassen</h3>
+    <p>Melde dich an und erhalte Einladungen zu neuen Gruppen & Terminen direkt in dein Postfach.</p>
+    <div class="ev-nl-form">
+      <input type="email" id="evEmail" placeholder="Deine E-Mail-Adresse">
+      <button onclick="evSub()">Anmelden</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="f-logo">beyour-self<span>.ch</span></a>
+  <div class="f-links">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="member.html">Mitglieder</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+  <p>© 2026 Manuela Zaugg · beyourself2026@outlook.com</p>
+</footer>
+
+<script src="main.js"></script>
+<script>
+function evSub(){
+  const e=document.getElementById('evEmail');
+  const b=document.querySelector('.ev-nl-form button');
+  if(e.value&&e.value.includes('@')){b.textContent='✓ Danke!';b.style.background='var(--gold-d)';e.value='';}
+}
+</script>
+</body>
+</html>

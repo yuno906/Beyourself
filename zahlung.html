@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahlung | beyour-self.ch</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.pay-hero{background:var(--warm);padding:9rem 5rem 4rem;border-bottom:1px solid var(--bord)}
+.pay-hero p{font-size:.95rem;color:var(--muted);font-weight:300;max-width:500px;margin:.75rem 0 0;line-height:1.82}
+
+.pay-body{padding:5rem;background:var(--cream);max-width:1100px;margin:0 auto}
+
+/* METHODS */
+.pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:4rem}
+.pay-card{background:var(--white);border-radius:1.5rem;border:1px solid var(--bord);padding:2.25rem;transition:transform .25s,box-shadow .25s}
+.pay-card:hover{transform:translateY(-4px);box-shadow:0 16px 44px rgba(184,137,58,.1)}
+.pay-card.featured{background:var(--brown);border-color:var(--brown)}
+.pay-icon{font-size:2.8rem;margin-bottom:1rem}
+.pay-card h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--ink);margin-bottom:.6rem}
+.pay-card.featured h3{color:#fff}
+.pay-card p{font-size:.86rem;line-height:1.7;color:var(--muted);font-weight:300;margin-bottom:1.5rem}
+.pay-card.featured p{color:rgba(255,255,255,.55)}
+.pay-info-row{background:var(--warm);border-radius:.75rem;padding:.85rem 1rem;font-size:.88rem;font-weight:500;color:var(--ink);margin-bottom:.85rem;display:flex;align-items:center;gap:.5rem}
+.pay-card.featured .pay-info-row{background:rgba(255,255,255,.1);color:#fff}
+.twint-nr{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--gold-d)}
+.pay-card.featured .twint-nr{color:var(--gold-l)}
+
+/* PAYPAL QR */
+.paypal-qr-wrap{text-align:center;margin:1rem 0}
+.paypal-qr-wrap img{width:160px;height:160px;object-fit:contain;border-radius:1rem;border:3px solid var(--bord);padding:.5rem;background:#fff}
+.paypal-label{font-size:.76rem;color:var(--muted);margin-top:.5rem;font-weight:300}
+
+/* CARD LOGOS */
+.card-logos{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin-top:.5rem}
+.card-logo{background:var(--warm);border:1px solid var(--bord);border-radius:.5rem;padding:.35rem .8rem;font-size:.78rem;font-weight:600;color:var(--muted)}
+.card-logo.visa{color:#1A1F71}
+.card-logo.mc{color:#EB001B}
+.card-logo.amex{color:#007BC1}
+.card-logo.post{color:#FFCC00;background:var(--ink)}
+
+/* MEMBERSHIP */
+.membership-sec{background:var(--white);border-radius:1.75rem;border:1px solid var(--bord);overflow:hidden;margin-bottom:3rem}
+.ms-head{background:var(--linen);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.ms-head h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--brown)}
+.ms-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.ms-plan{padding:2rem 2.5rem;border-right:1px solid var(--bord)}
+.ms-plan:last-child{border-right:none}
+.ms-plan-tag{font-size:.64rem;text-transform:uppercase;letter-spacing:.16em;color:var(--gold);font-weight:500;margin-bottom:.5rem}
+.ms-plan-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--ink);margin-bottom:.4rem}
+.ms-plan-price{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--gold-d);line-height:1}
+.ms-plan-period{font-size:.78rem;color:var(--muted);font-weight:300;margin-bottom:1rem}
+.ms-plan-features{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.5rem}
+.ms-plan-features li{font-size:.83rem;color:var(--muted);font-weight:300;padding-left:1rem;position:relative}
+.ms-plan-features li::before{content:'✓';position:absolute;left:0;color:var(--gold)}
+
+/* BANK */
+.bank-sec{background:var(--warm);border-radius:1.25rem;border:1px solid var(--bord);padding:2rem 2.5rem}
+.bank-sec h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);margin-bottom:1.25rem}
+.bank-rows{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.bank-row{background:var(--white);border-radius:.875rem;padding:1rem 1.25rem;border:1px solid var(--bord)}
+.bank-lbl{font-size:.64rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:500;margin-bottom:.25rem}
+.bank-val{font-size:.92rem;font-weight:500;color:var(--ink)}
+
+/* SICHERHEIT */
+.security-bar{background:var(--ink);border-radius:1rem;padding:1.25rem 2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;margin-top:3rem}
+.sec-item{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:rgba(255,255,255,.5);font-weight:300}
+.sec-icon{font-size:1.1rem}
+
+@media(max-width:1024px){
+  .pay-hero,.pay-body{padding-left:1.5rem;padding-right:1.5rem}
+  .pay-grid{grid-template-columns:1fr}
+  .ms-plans{grid-template-columns:1fr}
+  .ms-plan{border-right:none;border-bottom:1px solid var(--bord)}
+  .ms-plan:last-child{border-bottom:none}
+  .bank-rows{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="logo"><span class="logo-orb">by</span>beyour-self.ch</a>
+  <button class="nav-burger" id="burger" aria-label="Menü öffnen" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="member.html">Mitglieder</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <div class="nav-r">
+    <a href="member.html" class="nav-member">✦ Mitglieder</a>
+    <a href="kontakt.html" class="nav-cta">Gratis Gespräch</a>
+  </div>
+</nav>
+
+<div class="pay-hero">
+  <div class="eye">Zahlung</div>
+  <h1 class="h2">Sicher &<br><em>einfach bezahlen.</em></h1>
+  <p>Wähle deine bevorzugte Zahlungsmethode — alle Transaktionen sind sicher und verschlüsselt.</p>
+</div>
+
+<div class="pay-body">
+
+  <!-- MITGLIEDSCHAFT -->
+  <div class="eye" style="margin-bottom:1rem">Mitgliedschaft</div>
+  <h2 class="h2" style="margin-bottom:2.5rem">Mitgliederbereich <em>abonnieren</em></h2>
+
+  <div class="membership-sec reveal">
+    <div class="ms-head">
+      <h3>Wähle deinen Plan</h3>
+      <span style="font-size:.82rem;color:var(--muted);font-weight:300">Zugang zu Meditationen, Videos & exklusiven Inhalten</span>
+    </div>
+    <div class="ms-plans">
+      <div class="ms-plan">
+        <div class="ms-plan-tag">Monatlich</div>
+        <div class="ms-plan-name">Basis</div>
+        <div class="ms-plan-price">CHF 19.–</div>
+        <div class="ms-plan-period">pro Monat · jederzeit kündbar</div>
+        <ul class="ms-plan-features">
+          <li>Alle Meditationen (Dr. Dahlke)</li>
+          <li>Massage-Video Einführung</li>
+          <li>Vitamin D Vortrag (Prof. Spitz)</li>
+        </ul>
+        <a href="mailto:beyourself2026@outlook.com?subject=Mitgliedschaft Basis monatlich" class="btn-gold btn-sm">Jetzt starten →</a>
+      </div>
+      <div class="ms-plan" style="background:var(--warm);position:relative">
+        <div style="position:absolute;top:1rem;right:1rem;background:var(--gold);color:#fff;font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border-radius:100px">Empfohlen</div>
+        <div class="ms-plan-tag">Halbjährlich</div>
+        <div class="ms-plan-name">Komfort</div>
+        <div class="ms-plan-price">CHF 99.–</div>
+        <div class="ms-plan-period">alle 6 Monate · CHF 16.50/Mt</div>
+        <ul class="ms-plan-features">
+          <li>Alle Meditationen (Dr. Dahlke)</li>
+          <li>Alle Videos & Vorträge</li>
+          <li>Neue Inhalte monatlich</li>
+          <li>10% Rabatt auf Beratungen</li>
+        </ul>
+        <a href="mailto:beyourself2026@outlook.com?subject=Mitgliedschaft Komfort halbjährlich" class="btn-gold btn-sm">Jetzt starten →</a>
+      </div>
+      <div class="ms-plan">
+        <div class="ms-plan-tag">Jährlich</div>
+        <div class="ms-plan-name">Premium</div>
+        <div class="ms-plan-price">CHF 169.–</div>
+        <div class="ms-plan-period">pro Jahr · CHF 14.–/Mt</div>
+        <ul class="ms-plan-features">
+          <li>Alle Meditationen & Videos</li>
+          <li>Alle zukünftigen Inhalte</li>
+          <li>15% Rabatt auf alle Beratungen</li>
+          <li>Priorität bei Events</li>
+        </ul>
+        <a href="mailto:beyourself2026@outlook.com?subject=Mitgliedschaft Premium jährlich" class="btn-gold btn-sm">Jetzt starten →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ZAHLUNGSMETHODEN -->
+  <div class="eye" style="margin-bottom:1rem;margin-top:3rem">Zahlungsmethoden</div>
+  <h2 class="h2" style="margin-bottom:2.5rem">So kannst du <em>bezahlen</em></h2>
+
+  <div class="pay-grid reveal">
+
+    <!-- TWINT -->
+    <div class="pay-card featured">
+      <div class="pay-icon">📱</div>
+      <h3>TWINT</h3>
+      <p>Schnell, einfach und sicher — direkt mit deinem Smartphone bezahlen.</p>
+      <div class="pay-info-row">📲 TWINT-Nummer</div>
+      <div class="twint-nr">+41 79 335 27 18</div>
+      <div style="font-size:.78rem;color:rgba(255,255,255,.4);font-weight:300;margin-top:.75rem">Manuela Zaugg · beyour-self.ch</div>
+      <div style="margin-top:1.5rem">
+        <a href="tel:+41793352718" class="btn-gold" style="width:100%;text-align:center;display:block">TWINT öffnen</a>
+      </div>
+    </div>
+
+    <!-- PAYPAL -->
+    <div class="pay-card">
+      <div class="pay-icon">💳</div>
+      <h3>PayPal</h3>
+      <p>QR-Code scannen und sicher über PayPal bezahlen — weltweit und einfach.</p>
+      <div class="paypal-qr-wrap">
+        <img src="paypal.jpg" alt="PayPal QR Code beyour-self.ch">
+        <div class="paypal-label">QR-Code scannen mit der PayPal-App</div>
+      </div>
+      <div style="margin-top:1rem">
+        <a href="https://paypal.me" target="_blank" class="btn-line" style="width:100%;text-align:center;display:block">PayPal.me öffnen</a>
+      </div>
+    </div>
+
+    <!-- KARTE -->
+    <div class="pay-card">
+      <div class="pay-icon">💰</div>
+      <h3>Kreditkarte / Debitkarte</h3>
+      <p>Alle gängigen Karten werden akzeptiert. Zahlung erfolgt nach Rechnungsstellung per Überweisung oder beim Termin.</p>
+      <div class="card-logos">
+        <span class="card-logo visa">VISA</span>
+        <span class="card-logo mc">MC</span>
+        <span class="card-logo amex">AMEX</span>
+        <span class="card-logo post">PostFinance</span>
+      </div>
+      <div style="margin-top:1.5rem">
+        <a href="mailto:beyourself2026@outlook.com?subject=Zahlung per Karte anfragen" class="btn-gold" style="width:100%;text-align:center;display:block">Rechnung anfragen</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BANKÜBERWEISUNG -->
+  <div class="bank-sec reveal">
+    <h3>Banküberweisung</h3>
+    <div class="bank-rows">
+      <div class="bank-row"><div class="bank-lbl">Name</div><div class="bank-val">Manuela Zaugg</div></div>
+      <div class="bank-row"><div class="bank-lbl">Bank</div><div class="bank-val">PostFinance AG</div></div>
+      <div class="bank-row"><div class="bank-lbl">IBAN</div><div class="bank-val">Auf Anfrage per E-Mail</div></div>
+      <div class="bank-row"><div class="bank-lbl">Verwendungszweck</div><div class="bank-val">Vor- & Nachname + Leistung</div></div>
+    </div>
+    <p style="font-size:.8rem;color:var(--muted);font-weight:300;margin-top:1.25rem">IBAN auf Anfrage: <a href="mailto:beyourself2026@outlook.com?subject=IBAN Anfrage" style="color:var(--gold)">beyourself2026@outlook.com</a></p>
+  </div>
+
+  <!-- SICHERHEIT -->
+  <div class="security-bar reveal">
+    <div class="sec-item"><span class="sec-icon">🔒</span>SSL-verschlüsselt</div>
+    <div class="sec-item"><span class="sec-icon">🇨🇭</span>Schweizer Datenschutz</div>
+    <div class="sec-item"><span class="sec-icon">✓</span>Zahlung im Voraus · keine Vertragsklauseln</div>
+    <div class="sec-item"><span class="sec-icon">📞</span>Fragen: +41 79 335 27 18</div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="f-logo">beyour-self<span>.ch</span></a>
+  <div class="f-links">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="member.html">Mitglieder</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+  <p>© 2026 Manuela Zaugg · beyourself2026@outlook.com</p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

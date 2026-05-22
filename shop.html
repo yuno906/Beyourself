@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop | beyour-self.ch</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.shop-hero{padding:9rem 5rem 4rem;background:var(--warm);border-bottom:1px solid var(--bord)}
+.shop-intro{max-width:680px;margin:0 auto;text-align:center}
+.shop-intro p{font-size:1rem;line-height:1.85;color:var(--muted);font-weight:300;margin-top:1rem}
+
+/* FEATURED PRODUCTS */
+.prod-featured{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem}
+.prod-big{background:var(--white);border-radius:1.75rem;border:1px solid var(--bord);overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+.prod-big-img{position:relative;overflow:hidden;min-height:380px;background:var(--warm)}
+.prod-big-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.prod-big-body{padding:2.5rem;display:flex;flex-direction:column;justify-content:space-between}
+.prod-badge-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.badge{font-size:.64rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px}
+.badge-gold{background:var(--gold);color:#fff}
+.badge-green{background:#2D7A52;color:#fff}
+.badge-outline{background:transparent;border:1px solid var(--bord);color:var(--muted)}
+.prod-name{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--ink);line-height:1.15;margin-bottom:.75rem}
+.prod-desc{font-size:.88rem;line-height:1.75;color:var(--muted);font-weight:300;margin-bottom:1.5rem}
+.effects-list{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.5rem}
+.effects-list li{font-size:.84rem;color:var(--muted);font-weight:300;padding-left:1rem;position:relative;list-style:none}
+.effects-list li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-size:.8rem}
+.size-opts{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.size-btn{border:1.5px solid var(--bord);background:none;border-radius:.5rem;padding:.4rem .9rem;font-size:.8rem;cursor:pointer;font-family:'Jost',sans-serif;color:var(--muted);transition:all .2s}
+.size-btn:hover,.size-btn.active{border-color:var(--gold);color:var(--gold-d);background:rgba(184,137,58,.05)}
+.price-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.price-main{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--gold-d)}
+.price-sub{font-size:.78rem;color:var(--muted);font-weight:300}
+.price-abo{background:var(--warm);border:1px solid var(--bord);border-radius:.75rem;padding:.65rem 1rem;margin-bottom:1.25rem}
+.price-abo .abo-price{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--gold-d)}
+.price-abo .abo-label{font-size:.74rem;color:var(--muted);font-weight:300}
+.certs-row{display:flex;gap:.5rem;align-items:center;margin-top:1rem;flex-wrap:wrap}
+.cert-img{height:36px;object-fit:contain;opacity:.75}
+
+/* GRID PRODUCTS */
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.prod-card{background:var(--white);border-radius:1.5rem;border:1px solid var(--bord);overflow:hidden;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.prod-card:hover{transform:translateY(-5px);box-shadow:0 16px 44px rgba(184,137,58,.12)}
+.prod-card-img{height:200px;overflow:hidden;position:relative;background:var(--warm);display:flex;align-items:center;justify-content:center;font-size:4rem}
+.prod-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.prod-card:hover .prod-card-img img{transform:scale(1.05)}
+.prod-card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.prod-card-tag{font-size:.64rem;text-transform:uppercase;letter-spacing:.16em;color:var(--gold);font-weight:500;margin-bottom:.4rem}
+.prod-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;line-height:1.2}
+.prod-card p{font-size:.83rem;line-height:1.65;color:var(--muted);font-weight:300;margin-bottom:1.2rem;flex:1}
+.prod-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.prod-price{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--gold-d)}
+
+/* VITALSTOFFE SECTION */
+.vitals-sec{background:var(--linen);padding:7rem 5rem}
+.vitals-head{text-align:center;max-width:640px;margin:0 auto 4rem}
+.vitals-feel{background:var(--white);border-radius:1.5rem;border:1px solid var(--bord);padding:2.5rem;margin-bottom:3rem}
+.vitals-feel h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:.75rem}
+.vitals-feel p{font-size:.9rem;line-height:1.8;color:var(--muted);font-weight:300;margin-bottom:1.5rem}
+.vitals-cats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.vcat{background:var(--warm);border-radius:1rem;padding:1.25rem;border:1px solid var(--bord);transition:transform .2s,border-color .2s;text-decoration:none;display:block}
+.vcat:hover{transform:translateX(4px);border-color:var(--gold)}
+.vcat-title{font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:.25rem}
+.vcat-desc{font-size:.8rem;color:var(--muted);font-weight:300;line-height:1.5}
+.vcat-arrow{color:var(--gold);font-size:.85rem;margin-top:.5rem;display:block}
+
+/* GESCHENKKARTE */
+.gift-card-sec{background:var(--white);padding:7rem 5rem}
+.gift-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.gift-visual{border-radius:1.5rem;overflow:hidden;box-shadow:0 20px 60px rgba(28,18,8,.1)}
+.gift-visual img{width:100%;display:block}
+.gift-content{}
+.gift-form{background:var(--warm);border-radius:1.25rem;padding:2rem;border:1px solid var(--bord);margin-top:2rem}
+.form-group{margin-bottom:1.25rem}
+.form-group label{display:block;font-size:.78rem;font-weight:500;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.4rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;border:1.5px solid var(--bord);border-radius:.75rem;padding:.75rem 1rem;font-size:.9rem;font-family:'Jost',sans-serif;color:var(--ink);background:var(--white);outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group textarea{height:90px;resize:vertical}
+.radio-group{display:flex;gap:1rem}
+.radio-btn{flex:1;border:1.5px solid var(--bord);border-radius:.75rem;padding:.65rem 1rem;font-size:.85rem;text-align:center;cursor:pointer;transition:all .2s;background:var(--white);font-family:'Jost',sans-serif;color:var(--muted)}
+.radio-btn.active{border-color:var(--gold);color:var(--gold-d);background:rgba(184,137,58,.05)}
+.no-expire{font-size:.78rem;color:var(--muted);font-weight:300;margin-top:.5rem}
+
+@media(max-width:1024px){
+  .prod-big{grid-template-columns:1fr}
+  .prod-big-img{min-height:240px}
+  .prod-featured{grid-template-columns:1fr}
+  .vitals-cats{grid-template-columns:1fr}
+  .products-grid{grid-template-columns:1fr 1fr}
+  .gift-layout{grid-template-columns:1fr}
+  .shop-hero{padding:8rem 1.5rem 3rem}
+  .vitals-sec,.gift-card-sec{padding:5rem 1.5rem}
+}
+@media(max-width:600px){
+  .products-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="logo"><span class="logo-orb">by</span>beyour-self.ch</a>
+  <button class="nav-burger" id="burger" aria-label="Menü öffnen" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#angebote">Angebote</a></li>
+    <li><a href="veranstaltungen.html">Events</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <div class="nav-r">
+    <a href="shop.html" class="nav-member active">Shop</a>
+    <a href="member.html" class="nav-shop">Mitglieder</a>
+    <a href="kontakt.html" class="nav-cta">Gratis Gespräch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="shop-hero">
+  <div class="shop-intro">
+    <div class="eye center">Vitalstoffe & Naturkosmetik</div>
+    <h1 class="h2">Feel the <em>difference.</em></h1>
+    <p>Exzellente Partner für deine alltäglichen Verbrauchsprodukte — pflanzlich reine Produkte, die deinen Körper, deine Organe, deinen Stoffwechsel und deine Lebensqualität massgeblich positiv beeinflussen. Über 100 Produkte zur Auswahl.</p>
+  </div>
+</div>
+
+<section class="sec reveal" style="background:var(--cream);padding:5rem">
+  <div style="text-align:center;margin-bottom:3rem">
+    <div class="eye center">Unsere Empfehlungen</div>
+    <h2 class="h2">Ausgewählte <em>Produkte</em></h2>
+  </div>
+
+  <!-- SPIRULINA — BIG FEATURED -->
+  <div style="background:var(--white);border-radius:1.75rem;border:1px solid var(--bord);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;margin-bottom:2rem">
+    <div style="position:relative;overflow:hidden;min-height:420px;background:var(--warm)">
+      <img src="spirulina.jpg" alt="Spirulina Platensis" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+    </div>
+    <div style="padding:2.5rem;display:flex;flex-direction:column;justify-content:space-between">
+      <div>
+        <div class="prod-badge-row">
+          <span class="badge badge-gold">Nr. 1 Empfehlung</span>
+          <span class="badge badge-green">Zertifiziert Vegan</span>
+          <span class="badge badge-outline">Gluten-Free</span>
+          <span class="badge badge-outline">Non GMO</span>
+        </div>
+        <div class="prod-name">Spirulina Platensis</div>
+        <p class="prod-desc">Hawaiian Spirulina® — hält mehr Drittpartei-Zertifizierungen als jede andere Spirulina-Marke. Ein natürliches Multi-Energy-Produkt mit essenziellen Aminosäuren, hochwertigem Protein, Vitaminen B, D, K & E sowie Antioxidantien.</p>
+        <ul class="effects-list">
+          <li>Verzögert den Alterungsprozess der Haut</li>
+          <li>Unterstützt beim Entgiften & Schwermetalle ausleiten</li>
+          <li>Hilft bei Müdigkeit und Depression</li>
+          <li>Ideal zum schnellen Muskelaufbau</li>
+          <li>Fördert aktiv den Zellschutz</li>
+          <li>Unterstützt bei der Gewichtsregulierung</li>
+        </ul>
+        <div style="margin-bottom:1rem">
+          <div style="font-size:.76rem;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem">Grösse wählen:</div>
+          <div class="size-opts">
+            <button class="size-btn active" onclick="setSize(this,'S','49.00')">S — 140g</button>
+            <button class="size-btn" onclick="setSize(this,'M','82.00')">M — 260g</button>
+            <button class="size-btn" onclick="setSize(this,'L','145.00')">L — 500g</button>
+            <button class="size-btn" onclick="setSize(this,'XL','265.00')">XL — 1000g</button>
+          </div>
+        </div>
+        <div class="price-abo">
+          <div class="abo-label">Abonnieren & 20% sparen</div>
+          <div class="abo-price">CHF 41.65 <span style="font-size:.8rem;font-weight:300;color:var(--muted)">alle 2 Monate</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="price-row">
+          <div>
+            <div class="price-main" id="spirulina-price">CHF 49.–</div>
+            <div class="price-sub">Einmaliger Kauf · Grösse S</div>
+          </div>
+          <a href="mailto:beyourself2026@outlook.com?subject=Bestellung Spirulina" class="btn-gold">Jetzt bestellen →</a>
+        </div>
+        <div class="certs-row">
+          <img src="label.jpg" alt="Zertifizierungen" style="height:40px;object-fit:contain;border-radius:.5rem">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 PRODUCTS GRID -->
+  <div class="products-grid">
+
+    <!-- MANGOMEGA -->
+    <div class="prod-card">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80" alt="Omega-3 Vitalstoffe"></div>
+      <div class="prod-card-body">
+        <div class="prod-card-tag">Omega-3 · Vitalstoff</div>
+        <h3>MangoMega von Life Plus</h3>
+        <p>Hochwertige Omega-3-Fettsäuren in leckerem Mango-Geschmack. Unterstützt Herz, Gehirn und Entzündungshemmung — für die ganze Familie.</p>
+        <div class="prod-card-footer">
+          <span class="prod-price">Auf Anfrage</span>
+          <a href="mailto:beyourself2026@outlook.com?subject=Anfrage MangoMega" class="btn-gold btn-sm">Anfragen</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BACHBLÜTEN -->
+    <div class="prod-card">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1591084728795-1149f32d9866?w=600&q=80" alt="Bachblüten"></div>
+      <div class="prod-card-body">
+        <div class="prod-card-tag">Bachblüten · Emotional Balance</div>
+        <h3>Kalifornische Bachblüten</h3>
+        <p>Bewährt für emotionale Balance und innere Ruhe. Sanft, natürlich und nachhaltig wirksam — für Körper und Seele. Individuelle Beratung inklusive.</p>
+        <div class="prod-card-footer">
+          <span class="prod-price">CHF 33.50</span>
+          <a href="mailto:beyourself2026@outlook.com?subject=Bestellung Bachblüten" class="btn-gold btn-sm">Bestellen</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BERATUNG -->
+    <div class="prod-card">
+      <div class="prod-card-img"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Persönliche Beratung"></div>
+      <div class="prod-card-body">
+        <div class="prod-card-tag">Beratung · Persönlich</div>
+        <h3>Persönliche Produktberatung</h3>
+        <p>Du suchst etwas Bestimmtes? Über 100 sorgfältig ausgewählte Produkte. Ich berate dich kostenlos und persönlich — damit du genau das Richtige findest.</p>
+        <div class="prod-card-footer">
+          <span class="prod-price">Gratis</span>
+          <a href="kontakt.html" class="btn-gold btn-sm">Kontakt</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VITALSTOFFE KATEGORIEN -->
+<section class="vitals-sec reveal">
+  <div class="vitals-head">
+    <div class="eye center">Life Plus Partner-Shop</div>
+    <h2 class="h2" style="text-align:center">Alle <em>Produktkategorien</em></h2>
+    <p class="body-text" style="text-align:center;margin:0 auto;max-width:520px">Herstellung auf höchstem Niveau — einzigartige Rezepturen mit den besten Inhaltsstoffen. Pflanzlich, rein und wirksam.</p>
+  </div>
+
+  <div class="vitals-feel">
+    <h3>Feel the difference — du willst mehr vom Leben?</h3>
+    <p>Du wählst zwischen z.T. pflanzlich reinen Produkten, die deinen Körper, deine Organe, deinen Stoffwechsel, deine Konzentrationsfähigkeit und somit deine Leistungsfähigkeit und Lebensqualität massivst positiv beeinflussen können — bis hin zu qualitativ hochstehenden Hautcremen und Sportsalben.</p>
+    <a href="https://ww1.lifeplus.com/shd558/m/ch/de/" target="_blank" class="btn-gold btn-sm">Zum Partner-Shop →</a>
+  </div>
+
+  <div class="vitals-cats">
+    <a href="https://ww1.lifeplus.com/shd558/m/ch/de/web-page/products?tags=tag_packs" target="_blank" class="vcat">
+      <div class="vcat-title">💊 Vitamine & Mineralstoffe</div>
+      <div class="vcat-desc">Das umfassende Sortiment deckt alle körperlichen Ansprüche ab</div>
+      <span class="vcat-arrow">→ Entdecken</span>
+    </a>
+    <a href="https://ww1.lifeplus.com/shd558/m/ch/de/web-page/products?tags=tag_immune_support,tag_packs" target="_blank" class="vcat">
+      <div class="vcat-title">🌿 Darmflora & Detox</div>
+      <div class="vcat-desc">Entschlacken, entsäuern & pflegen für bessere Nährstoffaufnahme</div>
+      <span class="vcat-arrow">→ Entdecken</span>
+    </a>
+    <a href="https://ww1.lifeplus.com/shd558/m/ch/de/web-page/products?tags=tag_sports_nutrition" target="_blank" class="vcat">
+      <div class="vcat-title">🏋️ Sportprodukte</div>
+      <div class="vcat-desc">Essentielle Makronährstoffe — auch für Leistungssport</div>
+      <span class="vcat-arrow">→ Entdecken</span>
+    </a>
+    <a href="https://ww1.lifeplus.com/shd558/m/ch/de/web-page/products?tags=tag_weight_balance" target="_blank" class="vcat">
+      <div class="vcat-title">⚖️ Gewichts-Balance</div>
+      <div class="vcat-desc">Ab- oder Zunehmen — die richtigen Produkte für dein Ziel</div>
+      <span class="vcat-arrow">→ Entdecken</span>
+    </a>
+    <a href="https://ww1.lifeplus.com/shd558/m/de/de/web-page/products?tags=tag_energy,tag_multi_vitamins_minerals" target="_blank" class="vcat">
+      <div class="vcat-title">😴 Schlaf & Konzentration</div>
+      <div class="vcat-desc">Tiefschlaf fördern & Wachphasen optimieren</div>
+      <span class="vcat-arrow">→ Entdecken</span>
+    </a>
+    <a href="https://ww1.lifeplus.com/shd558/m/de/de/web-page/products?tags=tag_healthy_ageing" target="_blank" class="vcat">
+      <div class="vcat-title">✨ Hautalterung</div>
+      <div class="vcat-desc">Langwährender Erfolg von Innen durch Makronährstoffe</div>
+      <span class="vcat-arrow">→ Entdecken</span>
+    </a>
+    <a href="https://ww1.lifeplus.com/shd558/m/de/de/web-page/products?tags=tag_superfoods&show=12" target="_blank" class="vcat">
+      <div class="vcat-title">🌱 Supernahrungsmittel</div>
+      <div class="vcat-desc">Potente pflanzliche Nährstoffe — ohne negative Inhaltsstoffe</div>
+      <span class="vcat-arrow">→ Entdecken</span>
+    </a>
+    <a href="https://ww1.lifeplus.com/shd558/m/de/de/web-page/products?tags=tag_all_skincare_skin_health&show=12" target="_blank" class="vcat">
+      <div class="vcat-title">💆 Luxuriöse Naturkosmetik</div>
+      <div class="vcat-desc">Keine unnötigen Zusatzstoffe über die Haut aufnehmen</div>
+      <span class="vcat-arrow">→ Entdecken</span>
+    </a>
+  </div>
+</section>
+
+<!-- GESCHENKKARTE -->
+<section class="gift-card-sec reveal">
+  <div class="eye">Verschenken</div>
+  <h2 class="h2" style="margin-bottom:3rem">Geschenkkarte —<br><em>immer eine gute Idee.</em></h2>
+  <div class="gift-layout">
+    <div>
+      <div class="gift-visual">
+        <img src="geschenkkarte.jpg" alt="Geschenkkarte">
+      </div>
+    </div>
+    <div>
+      <p class="body-text" style="margin-bottom:2rem">Einfach einen Betrag auswählen und eine persönliche Nachricht schreiben. Die Geschenkkarte hat kein Ablaufdatum — für alle Dienstleistungen und Produkte einlösbar.</p>
+      <div class="gift-form">
+        <div class="form-group">
+          <label>Betrag (CHF)</label>
+          <input type="number" placeholder="z.B. 90" min="30">
+        </div>
+        <div class="form-group">
+          <label>Für wen?</label>
+          <div class="radio-group">
+            <button class="radio-btn active" onclick="this.parentElement.querySelectorAll('.radio-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active')">Für eine andere Person</button>
+            <button class="radio-btn" onclick="this.parentElement.querySelectorAll('.radio-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active')">Für mich selbst</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>E-Mail des Empfängers</label>
+          <input type="email" placeholder="empfaenger@email.ch">
+        </div>
+        <div class="form-group">
+          <label>Name des Empfängers</label>
+          <input type="text" placeholder="Vorname Nachname">
+        </div>
+        <div class="form-group">
+          <label>Persönliche Nachricht</label>
+          <textarea placeholder="Deine persönliche Nachricht..."></textarea>
+        </div>
+        <p class="no-expire">✓ Die Geschenkkarte hat kein Ablaufdatum.</p>
+        <div style="margin-top:1.5rem">
+          <a href="mailto:beyourself2026@outlook.com?subject=Geschenkkarte bestellen" class="btn-gold" style="width:100%;text-align:center;display:block">Geschenkkarte bestellen →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="f-logo">beyour-self<span>.ch</span></a>
+  <div class="f-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#angebote">Angebote</a>
+    <a href="veranstaltungen.html">Events</a>
+    <a href="member.html">Mitglieder</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+  <p>© 2026 Manuela Zaugg · beyourself2026@outlook.com</p>
+</footer>
+
+<script src="main.js"></script>
+<script>
+function setSize(btn,size,price){
+  document.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('spirulina-price').textContent='CHF '+price+'–';
+}
+</script>
+</body>
+</html>
