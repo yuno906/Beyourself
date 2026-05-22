@@ -3,7 +3,7 @@
 :root{
   --cream:#FAF7F2; --warm:#F0E8D8; --linen:#E5D8C2;
   --gold:#A87C2E; --gold-l:#C89840; --gold-xl:#E8C870; --gold-d:#7A5418;
-  --ink:#0E0905; --brown:#2C1A08; --muted:rgba(14,9,5,0.62);
+  --ink:#0E0905; --brown:#2C1A08; --muted:rgba(14,9,5,0.82);
   --white:#FFFFFF; --bord:rgba(168,124,46,0.22);
   --shadow:0 20px 60px rgba(14,9,5,0.14);
 }

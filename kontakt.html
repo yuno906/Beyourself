@@ -7,8 +7,8 @@
 <link rel="stylesheet" href="style.css">
 <style>
 .contact-hero{background:var(--ink);min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px}
-.contact-photo{position:relative;overflow:hidden;background:#b5a090}
-.contact-photo img{width:100%;height:100%;object-fit:contain;object-position:center top;position:absolute;inset:0}
+.contact-photo{position:relative;overflow:hidden;background:#c4a882}
+.contact-photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;position:absolute;inset:0;filter:sepia(15%) saturate(120%) brightness(1.06) contrast(0.97)}
 .contact-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, transparent 60%, var(--warm,#f0ece4) 100%), linear-gradient(to right, var(--warm,#f0ece4) 0%, transparent 8%, transparent 92%, var(--warm,#f0ece4) 100%)}
 .contact-content{background:var(--warm);padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center}
 
@@ -56,7 +56,7 @@
 .faq-q{font-size:.92rem;font-weight:500;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
 .faq-q .arrow{color:var(--gold);transition:transform .2s;font-size:.8rem}
 .faq-q.open .arrow{transform:rotate(180deg)}
-.faq-a{font-size:.85rem;line-height:1.72;color:var(--muted);font-weight:300;margin-top:.75rem;display:none}
+.faq-a{font-size:.85rem;line-height:1.72;color:var(--muted);font-weight:400;margin-top:.75rem;display:none}
 .faq-a.open{display:block}
 
 @media(max-width:1024px){
@@ -113,7 +113,7 @@
   <div class="contact-content">
     <div class="eye">Kontakt</div>
     <h1 class="h2" style="margin-bottom:1rem">Bereit für<br><em>deine Veränderung?</em></h1>
-    <p style="font-size:.92rem;line-height:1.85;color:var(--muted);font-weight:300;max-width:380px">15 Minuten gratis — unverbindlich und persönlich. Ich freue mich auf dich, in der Praxis, draussen oder online.</p>
+    <p style="font-size:.92rem;line-height:1.85;color:var(--muted);font-weight:400;max-width:380px">15 Minuten gratis — unverbindlich und persönlich. Ich freue mich auf dich, in der Praxis, draussen oder online.</p>
 
     <div class="cdetails">
       <!-- WHATSAPP FIRST -->
